@@ -119,9 +119,9 @@ View 1
 
 #### Sprint 2 - 10/10-10/12
 
-- rendering pages
-- CRUD implemented
-- MVP met
+- user sees homepage and is able to create profile
+- user is able to input workouts and have them saved, and available for reference
+- user can further specify the details of thier workout
 
 
 
