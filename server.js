@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 4000;
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const morgan = require('morgan');
 require('dotenv').config();
 
 // Set View Engine

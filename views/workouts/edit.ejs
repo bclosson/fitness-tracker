@@ -9,11 +9,20 @@
     <%- include('../partials/header') %>
 
     <main>
-        <h2>Edit <%= workout.name %>'s Info</h2>
-        <form action="/workouts/<%= workout._id %>?_method=PUT" method="post">
-          <input type="text" name="name" value="<%= workout.name %>"/><br/><br/>
-    
-          <input type="submit" value="Update Workout"/>
+        <h2>Edit Info for Workouts: <%=workout.name%></h2>
+  
+        <form action="/workouts/<%= workout.id %>?_method=PUT" method="POST">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" value="<%= workout.name %>">
+          </div>
+      
+          <div>
+            <label for="date">Date</label>
+            <textarea type="textarea" name="date"><%= workout.date %></textarea>
+          </div>
+      
+          <input type="submit">
         </form>
       </main>
 </body>
