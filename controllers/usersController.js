@@ -61,4 +61,19 @@ router.get('/:userId/edit', (req, res) => {
         res.render('users/edit', context);
     });
 });
+
+// Put Update
+router.put('/:userId', (req, res) => {
+    // Validate DATA!
+    //Query DB to update user by ID
+    db.User.findByIdAndUpdate(
+        req.params.userId,
+        req.body,
+        {new: true},
+        (err, updatedUser) => {
+            if (err) return console.log(err);
+            res.redirect(`/users/${updatedUser._id}`);
+        });
+});
+
 module.exports = router;
