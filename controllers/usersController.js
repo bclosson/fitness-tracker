@@ -50,4 +50,15 @@ router.post('/', (req, res) => {
     });
 });
 
+// Get Edit
+router.get('/:userId/edit', (req, res) => {
+    // Query DB for user by ID
+    db.User.findById(req.params.userId, (err, foundUser) => {
+        if (err) return console.log(err);
+        const context = {
+            user: foundUser,
+        };
+        res.render('users/edit', context);
+    });
+});
 module.exports = router;
