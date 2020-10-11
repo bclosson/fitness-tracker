@@ -6,7 +6,7 @@ const db = require('../models');
 
 // Current Path = '/users'
 
-// Get Index
+// Get Index Route
 router.get('/', (req, res) => {
     // Query DB for all users
     db.User.find({}, (err, allUsers) => {
@@ -20,12 +20,12 @@ router.get('/', (req, res) => {
     });
 });
 
-// Get New
+// Get New Route
 router.get('/new', (req, res) => {
     res.render('users/new');
 });
 
-// Get Show
+// Get Show Route
 
 router.get('/:userId', (req, res) => {
     // Query DB for user by Id
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
     });
 });
 
-// Get Edit
+// Get Edit Route
 router.get('/:userId/edit', (req, res) => {
     // Query DB for user by ID
     db.User.findById(req.params.userId, (err, foundUser) => {
@@ -62,7 +62,7 @@ router.get('/:userId/edit', (req, res) => {
     });
 });
 
-// Put Update
+// Put Update Route
 router.put('/:userId', (req, res) => {
     // Validate DATA!
     //Query DB to update user by ID
@@ -74,6 +74,20 @@ router.put('/:userId', (req, res) => {
             if (err) return console.log(err);
             res.redirect(`/users/${updatedUser._id}`);
         });
+});
+
+// Delete Route
+router.delete('/:userId', (req, res) => {
+    // Qeury DB to delete user by ID
+    db.User.findByIdAndDelete(req.params.userId, (err, deletedUser) => {
+        if (err) return console.log(err);
+        
+        db.Workout.deleteMany({_id: { $in: deletedUser.workouts }}, (err) => {
+            if (err) return console.log(err);
+
+            res.redirect('users');
+        });
+    });
 });
 
 module.exports = router;
