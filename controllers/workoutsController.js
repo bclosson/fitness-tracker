@@ -18,4 +18,17 @@ router.get('/', (req, res) => {
     });
 });
 
+// GET New
+router.get('/new', (req, res) => {
+    db.User.find({}, (err, allUsers) => {
+        if (err) return console.log(err);
+
+        const context = {
+            user: allUsers
+        };
+
+        res.render('workouts/new', context);
+    });
+});
+
 module.exports = router;
