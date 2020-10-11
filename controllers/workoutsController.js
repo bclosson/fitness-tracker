@@ -31,4 +31,18 @@ router.get('/new', (req, res) => {
     });
 });
 
+// GET Show
+router.get('/:workoutId', (req, res) => {
+    db.Workout.findById(req.params.workoutId)
+    .exec((err, foundWorkout) => {
+        if (err) return console.log(err);
+
+        const context = {
+            workout: foundWorkout
+        };
+
+        res.render('workouts/show', context);
+    });
+});
+
 module.exports = router;
