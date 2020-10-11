@@ -45,4 +45,22 @@ router.get('/:workoutId', (req, res) => {
     });
 });
 
+// POST Create
+router.post('/', (req, res) => {
+    db.Workout.create(req.body, (err, newWorkout) => {
+        if (err) return console.log(err);
+
+        db.User.findById(req.body.user, (err, foundUser) => {
+            if (err) return console.log(err);
+
+            foundUser.workouts.push(newWorkout._id);
+            foundUser.save((err, savedUser) => {
+                if (err) return console.log(err);
+
+                res.redirect(`/workouts/${newWorkout.id}`);
+            });
+        });
+    });
+});
+
 module.exports = router;
