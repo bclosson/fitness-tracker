@@ -2,8 +2,9 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4000;
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const methodOverride = require('method-overrride');
+const methodOverride = require('method-override');
 require('dotenv').config();
 
 // Set View Engine
