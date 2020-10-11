@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <h2>Show Page for <%= user.name %></h2>
+        <section>
+          <h2>User Attributes:</h2>
+          <ul>
+            <li>Name: <%= user.name %></li>
+          </ul>
+    
+          <ul>
+            <% user.workouts.forEach((workout) => { %>
+              <a href="/workouts/<%= workout.id %>"><li><%= workout.name %></li></a>
+            <% }) %>
+          </ul>
+    
+        </section>
+        <section>
+          <a href="/users/<%= user._id %>/edit">
+            <button>Edit</button>
+          </a>
+    
+          <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+            <input type="submit" value="Delete User"/>
+          </form>
+        </section>
+      </main>
+</body>
+</html>
