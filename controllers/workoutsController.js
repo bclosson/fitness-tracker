@@ -76,4 +76,24 @@ router.get('/:workoutId/edit', (req, res) => {
     });
 });
 
+// DELETE 
+router.delete('/:workoutId', (req, res) => {
+    const workoutId = req.params.workoutId;
+
+    db.Workout.findByIdAndDelete(workoutId, (err) => {
+        if (err) return console.log(err);
+
+        db.User.findOne({'workouts': workoutId}, (err, foundUser) => {
+            if (err) return console.log(err);
+
+            foundUser.workouts.remove(workoutId);
+            foundUser.save((err, updatedUser) => {
+                if (err) return console.log(err);
+
+                res.redirect('/workouts');
+            });
+        });
+    });
+});
+
 module.exports = router;
