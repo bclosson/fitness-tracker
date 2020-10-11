@@ -76,7 +76,7 @@ router.get('/:workoutId/edit', (req, res) => {
     });
 });
 
-// DELETE 
+// DELETE Destroy
 router.delete('/:workoutId', (req, res) => {
     const workoutId = req.params.workoutId;
 
@@ -94,6 +94,20 @@ router.delete('/:workoutId', (req, res) => {
             });
         });
     });
+});
+
+// PUT Update
+router.put('/:workoutId', (req, res) => {
+    db.Workout.findByIdAndUpdate(
+        req.params.workoutId,
+        req.body,
+        {new: true},
+        (err, updatedWorkout) => {
+            if (err) return console.log(err);
+
+            res.redirect(`/workouts/${updatedWorkout.id}`);
+        }
+    );
 });
 
 module.exports = router;
