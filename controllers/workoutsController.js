@@ -63,4 +63,17 @@ router.post('/', (req, res) => {
     });
 });
 
+// GET Edit
+router.get('/:workoutId/edit', (req, res) => {
+    db.Workout.findById(req.params.workoutId, (err, foundWorkout) => {
+        if (err) return console.log(err);
+
+        const context = {
+            workout: foundWorkout
+        };
+
+        res.render('workouts/edit', context);
+    });
+});
+
 module.exports = router;
