@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <h2>Add New Workout</h2>
+    <form action="/workouts" method="POST">
+
+      <select name="user">
+        <% users.forEach((user) => { %>
+          <option value="<%= user.id %>"><%= user.name %></option>
+        <% }) %>
+      </select>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name">
+      </div>
+  
+      <div>
+        <label for="date">Date</label>
+        <input type="text" name="date">
+      </div>
+  
+      <input type="submit">
+    </form>
+      </main>
+</body>
+</html>
