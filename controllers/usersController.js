@@ -20,6 +20,11 @@ router.get('/', (req, res) => {
     });
 });
 
+// Get New
+router.get('/new', (req, res) => {
+    res.render('users/new');
+});
+
 
 
 
