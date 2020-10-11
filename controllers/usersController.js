@@ -41,6 +41,13 @@ router.get('/:userId', (req, res) => {
     });
 });
 
-
+// Post Create
+router.post('/', (req, res) => {
+    // Query DB to create new user
+    db.User.create(req.body, (err, newUser) => {
+        if (err) return console.log(err);
+        res.redirect('/users');
+    });
+});
 
 module.exports = router;
