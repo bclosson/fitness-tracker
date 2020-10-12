@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     db.Workout.find({}, (err, allWorkouts) => {
         if (err) return console.log(err);
 
-        const context = {allWorkouts};
+        const context = { allWorkouts };
 
         res.render('workouts/index', context);
     });
@@ -24,7 +24,7 @@ router.get('/new', (req, res) => {
         if (err) return console.log(err);
 
         const context = {
-            user: allUsers
+            users: allUsers
         };
 
         res.render('workouts/new', context);
@@ -34,14 +34,13 @@ router.get('/new', (req, res) => {
 // GET Show
 router.get('/:workoutId', (req, res) => {
     db.Workout.findById(req.params.workoutId)
-    .exec((err, foundWorkout) => {
+    .populate('user')
+    .exec((err, workoutById) => {
         if (err) return console.log(err);
 
-        const context = {
-            workout: foundWorkout
-        };
+        console.log('workoutById:', workoutById)
 
-        res.render('workouts/show', context);
+        res.render('workouts/show', workoutById);
     });
 });
 
@@ -58,8 +57,9 @@ router.post('/', (req, res) => {
                 if (err) return console.log(err);
 
                 res.redirect(`/workouts/${newWorkout.id}`);
-            });
-        });
+            })
+        })
+
     });
 });
 
