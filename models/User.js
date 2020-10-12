@@ -6,7 +6,7 @@ const userSchema = new Schema({
         type: String,
         requred: true,
     },
-    workout: [{
+    workouts: [{
         type: Schema.Types.ObjectId,
         ref: 'Workout'
     }]
