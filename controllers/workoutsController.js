@@ -35,7 +35,7 @@ router.get('/new', (req, res) => {
 router.get('/:workoutId', (req, res) => {
     db.Workout.findById(req.params.workoutId)
     .populate('user')
-    .exec((err, foundWorkout) => {
+    .exec((err, workoutById) => {
         if (err) return console.log(err);
 
         console.log('workoutById:', workoutById);
