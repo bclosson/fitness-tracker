@@ -10,12 +10,12 @@ const db = require('../models');
 router.get('/', (req, res) => {
     // Get data for all workouts
     db.Workout.find({}, (err, allWorkouts) => {
-        if (err) return console.log(err);
+      if (err) return console.log(err);
 
         const context = { allWorkouts };
 
         res.render('workouts/index', context);
-    });
+    })
 });
 
 // GET New
@@ -69,7 +69,7 @@ router.get('/:workoutId/edit', (req, res) => {
         if (err) return console.log(err);
 
         const context = {
-            workout: foundWorkout
+            workout: foundWorkout,
         };
 
         res.render('workouts/edit', context);

@@ -33,7 +33,6 @@ router.get('/:userId', (req, res) => {
     .populate('workouts')
     .exec((err, foundUser) => {
         if (err) return console.log(err);
-
         const context = {
             user: foundUser,
         };
@@ -90,7 +89,7 @@ router.delete('/:userId', (req, res) => {
             if (err) return console.log(err);
 
             res.redirect('users');
-        });
+        })
     });
 });
 
