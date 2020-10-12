@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    
+    <main>
+        <h2>All Runs</h2>
+        <ul>
+            <% allRuns.forEach((run, index) => { %>
+                <li>
+                    <a href="/runs/<%= run.id %>">
+                    <h2><%= index + 1 %>. <%= runs.name %></h2>
+                    </a>
+                    <p><%= run.distance %></p>
+                    <p><%= run.time %></p>
+                </li>
+
+           <% }) %>
+
+        </ul>
+    </main>
+</body>
+</html>
