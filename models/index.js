@@ -19,4 +19,5 @@ db.on('error', (error) => {
 module.exports = {
     User: require('./User'),
     Workout: require('./Workout'),
+    Run: require('./Run'),
 };
