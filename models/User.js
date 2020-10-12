@@ -6,10 +6,10 @@ const userSchema = new Schema({
         type: String,
         requred: true,
     },
-    workout: {
+    workout: [{
         type: Schema.Types.ObjectId,
         ref: 'Workout',
-    },
+    }]
 }, {timestamps: true});
 
 const User = mongoose.model('User', userSchema);
