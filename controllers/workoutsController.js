@@ -10,7 +10,7 @@ const db = require('../models');
 router.get('/', (req, res) => {
     // Get data for all workouts
     db.Workout.find({}, (err, allWorkouts) => {
-        if (err) return console.log(err);
+      if (err) return console.log(err);
 
         const context = {allWorkouts};
 
@@ -24,7 +24,7 @@ router.get('/new', (req, res) => {
         if (err) return console.log(err);
 
         const context = {
-            user: allUsers
+            users: allUsers
         };
 
         res.render('workouts/new', context);
