@@ -88,7 +88,7 @@ router.delete('/:userId', (req, res) => {
         db.Workout.deleteMany({_id: { $in: deletedUser.workouts }}, (err) => {
             if (err) return console.log(err);
 
-            res.redirect('users');
+            res.redirect('/users');
         })
     });
 });

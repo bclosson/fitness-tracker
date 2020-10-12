@@ -17,8 +17,8 @@
           </ul>
     
           <ul>
-            <% user.workout.forEach((workout) => { %>
-              <a href="/workouts/<%= workout._id %>"><li><%= workout.name %></li></a>
+            <% user.workouts.forEach((workout) => { %>
+              <a href="/workouts/<%= workout.id %>"><li><%= workout.name %></li></a>
             <% }) %>
           </ul>
     
