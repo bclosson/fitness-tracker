@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     db.Workout.find({}, (err, allWorkouts) => {
       if (err) return console.log(err);
 
-        const context = {allWorkouts};
+        const context = { allWorkouts };
 
         res.render('workouts/index', context);
     })
@@ -38,7 +38,7 @@ router.get('/:workoutId', (req, res) => {
     .exec((err, workoutById) => {
         if (err) return console.log(err);
 
-        console.log('workoutById:', workoutById);
+        console.log('workoutById:', workoutById)
 
         res.render('workouts/show', workoutById);
     });

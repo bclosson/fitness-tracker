@@ -6,20 +6,18 @@
     <title>Fitness Tracker</title>
 </head>
 <body>
-    <%- include('../partials/header') %>
+  <%- include('../partials/header') %>
 
-    <main>
+  <h2><%= name %></h2>
+  <a href="/users/<%= user.id %>"><p><%= user.name %></p></a>
+  <p><%= date %></p>
 
-        <h2><%= name %></h2>
-        <a href="/users/<%= user.id %>"><p><%= user.name %></p></a>
-        <p><%= date %></p>
-        <form action="/workouts/<%= id %>?_method=DELETE" method="POST">
-          <input type="submit" value="Delete">
-        </form>
-        <form action="/workouts/<%= id %>/edit" method="GET">
-          <input type="submit" value="Update">
-        </form>
-      
-    </main>
+<form action="/workouts/<%= id %>?_method=DELETE" method="POST">
+  <input type="submit" value="Delete">
+</form>
+
+<form action="/workouts/<%= id %>/edit" method="GET">
+  <input type="submit" value="Update">
+</form>
 </body>
 </html>

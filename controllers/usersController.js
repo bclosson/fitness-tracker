@@ -27,7 +27,6 @@ router.get('/new', (req, res) => {
 });
 
 // Get Show Route
-
 router.get('/:userId', (req, res) => {
     // Query DB for user by Id
     db.User.findById(req.params.userId)
@@ -46,6 +45,7 @@ router.post('/', (req, res) => {
     // Query DB to create new user
     db.User.create(req.body, (err, newUser) => {
         if (err) return console.log(err);
+        
         res.redirect('/users');
     });
 });
@@ -55,6 +55,7 @@ router.get('/:userId/edit', (req, res) => {
     // Query DB for user by ID
     db.User.findById(req.params.userId, (err, foundUser) => {
         if (err) return console.log(err);
+        
         const context = {
             user: foundUser,
         };
@@ -72,8 +73,10 @@ router.put('/:userId', (req, res) => {
         {new: true},
         (err, updatedUser) => {
             if (err) return console.log(err);
+            
             res.redirect(`/users/${updatedUser._id}`);
-        });
+        }
+    );
 });
 
 // Delete Route
@@ -85,7 +88,7 @@ router.delete('/:userId', (req, res) => {
         db.Workout.deleteMany({_id: { $in: deletedUser.workouts }}, (err) => {
             if (err) return console.log(err);
 
-            res.redirect('users');
+            res.redirect('/users');
         })
     });
 });

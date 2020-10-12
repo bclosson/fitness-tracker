@@ -8,7 +8,7 @@ const userSchema = new Schema({
     },
     workouts: [{
         type: Schema.Types.ObjectId,
-        ref: 'Workout',
+        ref: 'Workout'
     }]
 }, {timestamps: true});
 
