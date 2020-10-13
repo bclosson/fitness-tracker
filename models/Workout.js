@@ -13,7 +13,11 @@ const workoutSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    runs: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Run'
+    }]
 }, {timestamps: true});
 
 const Workout = mongoose.model('Workout', workoutSchema);

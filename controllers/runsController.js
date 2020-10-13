@@ -31,4 +31,6 @@ router.get('/new', (req, res) => {
     });
 });
 
+// POST Create
+// GET Edit
 module.exports = router;

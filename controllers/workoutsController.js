@@ -46,6 +46,10 @@ router.get('/:workoutId', (req, res) => {
 
 // POST Create
 router.post('/', (req, res) => {
+    let selection;
+    if (req.body.name === 'Run') {
+        selection = 'runs';
+    }
     db.Workout.create(req.body, (err, newWorkout) => {
         if (err) return console.log(err);
 
@@ -56,7 +60,8 @@ router.post('/', (req, res) => {
             foundUser.save((err, savedUser) => {
                 if (err) return console.log(err);
 
-                res.redirect(`/workouts/${newWorkout.id}`);
+                res.redirect(`${selection}/`);
+                // edits routes once created will need to be routed here
             })
         })
 

@@ -6,19 +6,24 @@
     <title>Fitness Tracker</title>
 </head>
 <body>
-    <%- include('../partials/header') %>
+    <% include('../partials/header') %>
 
     <main>
         <h2>Add New Run</h2>
         <form action="/runs" method="POST">
         
-            <select name="workout">
-                <% workouts.forEach((workout) => {
-                  <option value="<%= workout.id %>"><%= workout.name %></option>
+            <select name="workouts">
+                <% workouts.forEach((workout) => { %>
+                <option value="<%= workout.id %>"><%= workout.name %></option>
 
-                <% }); %>
-            </select>
+            <% }); %> 
+            </select> -->
         
+            <select name="run" id="run">
+                <% run.forEach((run) => { %> */
+                <option value="<%= run.id %>"><%= run.name %></option>
+                <%  }); %> 
+            </select>
         </form>
 
     </main>
