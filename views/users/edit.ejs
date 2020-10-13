@@ -12,13 +12,16 @@
 <body>
 
   <main>
-      <h2>Edit <%= user.name %>'s Info</h2>
       <form action="/users/<%= user._id %>?_method=PUT" method="post">
-        <input type="text" name="name" value="<%= user.name %>"/><br/><br/>
+        <div class="form-group">
+          <br/>
+          <label for="inputName1">Edit <%= user.name %>'s Info</label>
+          <input type="text" name="name" value="<%= user.name %>" class="form-control" id="inputName1" aria-describedby="emailHelp">
+        </div>
 
-        <input type="submit" value="Update User"/>
+        <button type="submit" value="Update User" class="btn btn-primary">Save</button>
       </form>
-    </main>
+  </main>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
