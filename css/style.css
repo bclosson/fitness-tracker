@@ -1,0 +1,111 @@
+:root {
+    --base-font: "montserrat", sans-serif;
+    /* Social Colors */
+    --facebook: #3b5998;
+    --twitter: #55acee;
+    --instagram: #517fa4;
+    --linkedin: #0077b5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--base-font);
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.light {
+    --background: #f1f1f1;
+    --background-alt: #dfe6e9;
+    --background-inverse: #2d3436;
+}
+
+.dark {
+    --background: #1f1f1f;
+    --background-alt: #2d3436;
+    --background-inverse: #f1f1f1;
+}
+
+.share {
+    background: var(--background-alt);
+    width: 280px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s linear;
+}
+
+.share:hover {
+    transform: scale(1.2);
+}
+
+.share:hover .share-cover {
+    transform: translateX(-100%);
+}
+
+.share-cover {
+    background: var(--background-inverse);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.6em;
+    text-align: center;
+    line-height: 80px;
+    color: var(--background-alt);
+    border-radius: 20px;
+    transition: transform .6s ease-in-out;
+    z-index: 2;
+}
+
+.share-icon {
+    flex: 1;
+    height: 80px;
+    text-align: center;
+    font-size: 1.6em;
+    line-height: 80px;
+    color: var(--background-inverse);
+    opacity: 0;
+    transition: opacity .6s linear;
+}
+
+.share:hover .share-icon {
+    opacity: 1;
+}
+
+.share-icon:hover {
+    color: var(--background-alt);
+}
+
+.facebook:hover {
+    background: var(--facebook);
+}
+
+.twitter:hover {
+    background: var(--twitter);
+}
+
+.instagram:hover {
+    background: var(--instagram);
+}
+
+.linkedin:hover {
+    background: var(--linkedin);
+}

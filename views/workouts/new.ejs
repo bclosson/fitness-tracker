@@ -7,30 +7,33 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <%- include('../partials/navbar') %>
+  <%- include('../partials/footer') %>
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
   <body>
     <main>
       <h2>Add New Workout</h2>
-      <form action="/workouts" method="POST">
-
-        <select name="user">
-          <% users.forEach((user) => { %>
-            <option value="<%= user.id %>"><%= user.name %></option>
-            <% }) %>
-          </select>
-          <div>
-            <label for="name">Name</label>
-            <input type="text" name="name">
+        <form action="/workouts" method="POST">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">User: </label>
+            <select name ="user" class="form-control" id="exampleFormControlSelect1">
+              <% users.forEach((user) => { %>
+                <option value="<%= user.id %>"><%= user.name %></option>
+                <% }) %>
+            </select>
           </div>
 
-          <div>
-            <label for="date">Date</label>
-            <input type="text" name="date">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Workout Name: </label>
+            <input name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Cycling">
           </div>
 
-          <input type="submit">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Workout Date: </label>
+            <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </main>
 
