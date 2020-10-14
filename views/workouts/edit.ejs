@@ -13,21 +13,20 @@
 <div class="container">
   <body>
     <main>
-      <h2>Edit Info for Workouts: <%=workout.name%></h2>
-
+      <br>
+      <h2>Edit Info for Workout: <%=workout.name%></h2>
+      <br>
       <form action="/workouts/<%= workout.id %>?_method=PUT" method="POST">
-
-        <div>
-          <label for="name">Name</label>
-          <input type="text" name="name" value="<%= workout.name %>">
+        <div class="form-group">
+          <label for="inputName1">Edit <%= workout.name %>: </label>
+          <input type="text" name="name" value="<%= workout.name %>" class="form-control" id="inputName1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="inputDate1">Edit Date: </label>
+          <input type="date" name="date" value="<%= workout.date %>" class="form-control" id="inputDate1" aria-describedby="emailHelp">
         </div>
 
-        <div>
-          <label for="date">Date</label>
-          <textarea type="textarea" name="date"><%= workout.date %></textarea>
-        </div>
-
-        <input type="submit">
+        <button type="submit" value="Update Workout" class="btn btn-primary">Save</button>
       </form>
     </main>
     
