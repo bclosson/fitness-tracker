@@ -16,16 +16,14 @@
       <br>
       <h2>All Workouts</h2>
       <br>
-      <ul>
-        <% allWorkouts.forEach((workout, index) => { %>
-          <li>
-            <a href="/workouts/<%= workout.id %>">
-              <h2><%= workout.name %></h2>
-            </a>
-            <p><%= workout.date %></p>
-          </li>
+        <div class="list-group">
+          <% allWorkouts.forEach((workout, index) => { %>
+          <a href="/workouts/<%= workout.id %>" class="list-group-item list-group-item-action">
+            <%= workout.name %>:  <%= workout.date.toString('yyyy-MM-dd') %>
+          </a>
           <% }) %>
-        </ul>
+        </div>
+
       </main>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
