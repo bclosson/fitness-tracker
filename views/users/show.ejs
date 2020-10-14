@@ -13,27 +13,34 @@
 <div class="container">
   <body>
     <main>
+      <br>
       <h2>Show Page for <%= user.name %></h2>
+
+      <br>
       <section>
-        <h2>User Attributes:</h2>
+        <h4>User Attributes:</h4>
         <ul>
           <li>Name: <%= user.name %></li>
         </ul>
-        
         <ul>
           <% user.workouts.forEach((workout) => { %>
             <a href="/workouts/<%= workout.id %>"><li><%= workout.name %></li></a>
             <% }) %>
           </ul>
-          
         </section>
+
+        <br>
         <section>
-          <a href="/users/<%= user._id %>/edit">
-            <button>Edit</button>
-          </a>
-          
-          <form action="/users/<%= user._id %>?_method=DELETE" method="post">
-            <input type="submit" value="Delete User"/>
+          <form action="/users/<%= user._id %>/edit" method="GET">
+            <div class="form-group">
+              <button type="submit" value="Edit" class="btn btn-primary">Edit</button>
+            </div>
+          </form>
+
+          <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+            <div class="form-group">
+              <button type="submit" value="Delete User" class="btn btn-primary">Delete</button>
+            </div>
           </form>
         </section>
       </main>
