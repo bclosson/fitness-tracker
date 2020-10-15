@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    
+    <main>
+        <h2>All Hiits</h2>
+        <ul>
+            <% allHiits.forEach((hiit, index) => { %>
+                <li>
+                    <a href="/hiits/<%= hiit.id %>">
+                    <h2>Circuit: <%= hiit.circuit %></h2>
+                    </a>
+                    <p>Cycles: <%= hiit.cycles %></p>
+                    <p>Minutes: <%= hiit.time %></p>
+                </li>
+            <% }) %>
+         </ul>
+    </main>
+</body>
+</html>

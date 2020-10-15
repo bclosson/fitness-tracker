@@ -39,7 +39,7 @@ router.get('/:runId', (req, res) => {
     .exec((err, runId) => {
         if (err) return console.log(err);
 
-        console.log('runById:', runId);
+        // console.log('runId:', runId);
 
         res.render('runs/show', {run: runId});
     });
@@ -49,11 +49,14 @@ router.get('/:runId', (req, res) => {
 router.post('/:workoutId', (req, res) => {
     db.Run.create(req.body, (err, newRun) => {
         if (err) return console.log(err);
+
         db.Workout.findById(req.params.workoutId, (err, foundWorkout) => {
             if (err) return console.log(err);
+
             foundWorkout.runs.push(newRun._id);
             foundWorkout.save((err, savedWorkout) => {
                 if (err) return console.log(err);
+                
                 res.redirect(`/runs`);
             })
         })

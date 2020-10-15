@@ -52,6 +52,8 @@ router.post('/', (req, res) => {
        selection = 'runs/edit';
    } else if (req.body.name === 'Bike') {
        selection = 'bikes/edit';
+   } else if (req.body.name === 'Hiit') {
+       selection = 'hiits/edit';
    };
     
     db.Workout.create(req.body, (err, newWorkout) => {

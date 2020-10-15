@@ -28,7 +28,7 @@ router.get('/new', (req, res) => {
             workouts: allWorkouts
         };
 
-        res.render('Hiits/new', context);
+        res.render('hiits/new', context);
     });
 });
 
@@ -49,11 +49,14 @@ router.get('/:hiitId', (req, res) => {
 router.post('/:workoutId', (req, res) => {
     db.Hiit.create(req.body, (err, newHiit) => {
         if (err) return console.log(err);
+
         db.Workout.findById(req.params.workoutId, (err, foundWorkout) => {
             if (err) return console.log(err);
+
             foundWorkout.hiits.push(newHiit._id);
             foundWorkout.save((err, savedWorkout) => {
                 if (err) return console.log(err);
+                
                 res.redirect(`/hiits`);
             })
         })

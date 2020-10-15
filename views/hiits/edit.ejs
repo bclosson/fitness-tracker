@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/navbar') %>
+    <title>Fitness Tracker</title>
+</head>
+<body>
+    <h2>Edit Info For HIIT: <%= hiit.name %></h2>
+
+    <form action="/hiits/<%= hiit._id %>" method="POST">
+    
+    
+    <div>
+        <label for="circuit">Circuit</label>
+        <input type="text" name="circuit"value="<%= hiit.circuit %>">
+    </div>
+    <div>
+        <label for="cycles">Cycles</label>
+        <input type="text" name="cycles"value="<%= hiit.cycles %>">
+    </div>
+    <div>
+        <label for="time">Time</label>
+        <input type="text" name="time"value="<%= hiit.time %>">
+    </div>
+    
+    <input type="submit">
+    </form>
+
+</body>
+</html>

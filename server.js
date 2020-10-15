@@ -38,6 +38,9 @@ app.use('/runs', ctrl.runs);
 // -- BIKES Route
 app.use('/bikes', ctrl.bikes);
 
+// -- HIITS Route
+app.use('/hiits', ctrl.hiits);
+
 // -- 404
 
 app.use('*', (req, res) => {
