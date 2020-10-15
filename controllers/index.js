@@ -4,5 +4,6 @@ module.exports = {
     runs: require('./runsController'),
     bikes: require('./bikesController'),
     hiits: require('./hiitsController'),
+    lifts: require('./liftsController'),
 };
 

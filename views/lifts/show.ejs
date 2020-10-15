@@ -8,14 +8,16 @@
 </head>
 <body>
     
-    <h2><%= run.route %></h2>
-    <p>Miles: <%= run.distance %></p>
-    <p>Minutes: <%= run.time %></p>
-    <form action="/runs/<%= run.id %>?_method=DELETE" method="POST">
+    <h2><%= lift.muscle_group %></h2>
+    <p>Exercise: <%= lift.exercise %></p>
+    <p>Weight: <%= lift.weight %></p>
+    <p>Sets: <%= lift.sets %></p>
+    
+    <form action="/lifts/<%= lift.id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
       </form>
       
-      <form action="/runs/<%= run.id %>/edit" method="GET">
+      <form action="/lifts/<%= lift.id %>/edit" method="GET">
         <input type="submit" value="Update">
       </form>
 </body>

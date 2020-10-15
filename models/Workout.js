@@ -25,6 +25,10 @@ const workoutSchema = new Schema({
     hiits: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Hiit'
+    }],
+    lifts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Lift'
     }]
 }, {timestamps: true});
 

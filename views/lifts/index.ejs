@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    
+    <main>
+        <h2>All Lifts</h2>
+        <ul>
+            <% allLifts.forEach((lift, index) => { %>
+                <li>
+                    <a href="/lifts/<%= lift.id %>">
+                    <h2>Muscle Group: <%= lift.muscle_group %></h2>
+                    </a>
+                    <p>Exercise: <%= lift.exercise %></p>
+                    <p>Weight: <%= lift.weight %></p>
+                    <p>Sets: <%= lift.sets %></p>
+                </li>
+            <% }) %>
+         </ul>
+    </main>
+</body>
+</html>

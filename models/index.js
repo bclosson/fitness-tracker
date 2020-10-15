@@ -22,4 +22,5 @@ module.exports = {
     Run: require('./Run'),
     Bike: require('./Bike'),
     Hiit: require('./Hiit'),
+    Lift: require('./Lift'),
 };

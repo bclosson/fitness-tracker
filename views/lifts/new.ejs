@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+</head>
+<body>
+    <% include('../partials/header') %>
+
+    <main>
+        <h2>Add New Lift</h2>
+        <form action="/lifts" method="POST">
+        
+            <select name="workouts">
+                <% workouts.forEach((workout) => { %>
+                <option value="<%= workout.id %>"><%= workout.name %></option>
+
+            <% }); %> 
+            </select> 
+            <!--   added from edit...  -->
+            <div>
+                <label for="muscle_group">Muscle Group</label>
+                <input type="text" name="muscle_group"value="<%= lift.muscle_group %>">
+            </div>
+            <div>
+                <label for="exercise">Exercise</label>
+                <input type="text" name="exercise"value="<%= lift.exercise %>">
+            </div>
+            <div>
+                <label for="weight">Weight</label>
+                <input type="text" name="weight"value="<%= lift.weight %>">
+            </div>
+            <div>
+                <label for="sets">Sets</label>
+                <input type="text" name="sets"value="<%= lift.sets %>">
+            </div>
+            <!--  above from edit  -->
+            <select name="lift" id="lift">
+                <% lift.forEach((lift) => { %> */
+                <option value="<%= lift.id %>"><%= lift.name %></option>
+                <%  }); %> 
+            </select>
+        </form>
+
+    </main>
+    
+</body>
+</html>
