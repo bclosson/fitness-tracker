@@ -14,14 +14,15 @@
   <body>
     <main>
       <br>
-        <h2>All Users</h2>
-        <ul>
+      <h2>All Users</h2>
+      <br>
+        <div class="list-group">
           <% for(let i = 0; i < users.length; i++){ %>
-              <li>
-                <a href="/users/<%= users[i]._id %>"><%= users[i].name %></a>
-              </li>
+          <a href="/users/<%= users[i]._id %>" class="list-group-item list-group-item-action">
+            <%= users[i].name %>
+          </a>
           <% } %>
-        </ul>
+        </div>
       </main>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
