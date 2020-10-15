@@ -3,19 +3,19 @@ const router = express.Router();
 
 //Database
 const db = require('../models');
-const { populate } = require('../models/Run');
+const { populate } = require('../models/Hiit');
 
-// Current path = '/runs'
+// Current path = '/hiits'
 
 // GET Index
 router.get('/', (req,res) => {
     // Get data from all runs
-    db.Run.find({}, (err, allRuns) => {
+    db.Hiit.find({}, (err, allHiits) => {
         if (err) return console.log(err);
 
-        const context = {allRuns};
+        const context = {allHiits};
 
-        res.render('runs/index', context);
+        res.render('hiits/index', context);
     })
 });
 
@@ -28,33 +28,33 @@ router.get('/new', (req, res) => {
             workouts: allWorkouts
         };
 
-        res.render('runs/new', context);
+        res.render('Hiits/new', context);
     });
 });
 
 // GET Show
-router.get('/:runId', (req, res) => {
-    db.Run.findById(req.params.runId)
-    .populate('runs','workout')
-    .exec((err, runId) => {
+router.get('/:hiitId', (req, res) => {
+    db.Hiit.findById(req.params.hiitId)
+    .populate('hiits','workout')
+    .exec((err, hiitId) => {
         if (err) return console.log(err);
 
-        console.log('runById:', runId);
+        console.log('hiitId:', hiitId);
 
-        res.render('runs/show', {run: runId});
+        res.render('hiits/show', {hiit: hiitId});
     });
 });
 
 // POST Create
 router.post('/:workoutId', (req, res) => {
-    db.Run.create(req.body, (err, newRun) => {
+    db.Hiit.create(req.body, (err, newHiit) => {
         if (err) return console.log(err);
         db.Workout.findById(req.params.workoutId, (err, foundWorkout) => {
             if (err) return console.log(err);
-            foundWorkout.runs.push(newRun._id);
+            foundWorkout.hiits.push(newHiit._id);
             foundWorkout.save((err, savedWorkout) => {
                 if (err) return console.log(err);
-                res.redirect(`/runs`);
+                res.redirect(`/hiits`);
             })
         })
     });
@@ -66,27 +66,27 @@ router.get('/edit/:workoutId', (req, res) => {
     db.Workout.findById(req.params.workoutId, (err, foundWorkout) => {
         if (err) return console.log(err);
         context = {
-            run: foundWorkout,
+            hiit: foundWorkout,
         };
-        res.render('runs/edit', context);
+        res.render('hiits/edit', context);
     });
 });
 
 // DELETE Destroy
-router.delete('/:runId', (req, res) => {
-    const runId = req.params.runId;
+router.delete('/:hiitId', (req, res) => {
+    const hiitId = req.params.hiitId;
 
-    db.Run.findByIdAndDelete(runId, (err) => {
+    db.Hiit.findByIdAndDelete(hiitId, (err) => {
         if (err) return console.log(err);
 
-        db.Workout.findOne({'runs': runId}, (err, foundWorkout) => {
+        db.Workout.findOne({'hiits': hiitId}, (err, foundWorkout) => {
             if (err) return console.log(err);
 
-            foundWorkout.runs.remove(runId);
+            foundWorkout.hiits.remove(hiitId);
             foundWorkout.save((err, updatedWorkout) => {
                 if (err) return console.log(err);
 
-                res.redirect('/runs');
+                res.redirect('/hiits');
             });
         });
     });
@@ -94,15 +94,15 @@ router.delete('/:runId', (req, res) => {
 });
 
 // PUT Update
-router.put('/:runId', (req, res) => {
-    db.Run.findByIdAndUpdate(
-        req.params.runId,
+router.put('/:hiitId', (req, res) => {
+    db.Hiit.findByIdAndUpdate(
+        req.params.hiitId,
         req.body,
         {new: true},
-        (err, updatedRun) => {
+        (err, updatedHiit) => {
             if (err) return console.log(err);
 
-            res.redirect(`/runs/${updatedRun.id}`);
+            res.redirect(`/hiits/${updatedHitt.id}`);
         }
     );
 });

@@ -17,6 +17,10 @@ const workoutSchema = new Schema({
     runs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Run'
+    }],
+    bikes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bike'
     }]
 }, {timestamps: true});
 

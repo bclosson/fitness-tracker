@@ -9,15 +9,15 @@
     <%- include('../partials/header') %>
     
     <main>
-        <h2>All Runs</h2>
+        <h2>All Bikes</h2>
         <ul>
-            <% allRuns.forEach((run, index) => { %>
+            <% allBikes.forEach((bike, index) => { %>
                 <li>
-                    <a href="/runs/<%= run.id %>">
-                    <h2>Route: <%= run.route %></h2>
+                    <a href="/bikes/<%= bike.id %>">
+                    <h2>Route: <%= bike.route %></h2>
                     </a>
-                    <p>Miles: <%= run.distance %></p>
-                    <p>Minutes: <%= run.time %></p>
+                    <p>Miles: <%= bike.distance %></p>
+                    <p>Minutes: <%= bike.time %></p>
                 </li>
             <% }) %>
          </ul>

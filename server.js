@@ -35,6 +35,9 @@ app.use('/workouts', ctrl.workouts);
 // -- RUNS Route
 app.use('/runs', ctrl.runs);
 
+// -- BIKES Route
+app.use('/bikes', ctrl.bikes);
+
 // -- 404
 
 app.use('*', (req, res) => {

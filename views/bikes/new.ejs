@@ -10,7 +10,7 @@
 
     <main>
         <h2>Add New Run</h2>
-        <form action="/runs" method="POST">
+        <form action="/bikes" method="POST">
         
             <select name="workouts">
                 <% workouts.forEach((workout) => { %>
@@ -21,20 +21,20 @@
             <!--   added from edit...  -->
             <div>
                 <label for="route">Route</label>
-                <input type="text" name="route"value="<%= run.route %>">
+                <input type="text" name="route"value="<%= bike.route %>">
             </div>
             <div>
                 <label for="distance">Distance</label>
-                <input type="text" name="distance"value="<%= run.distance %>">
+                <input type="text" name="distance"value="<%= bike.distance %>">
             </div>
             <div>
                 <label for="time">Time</label>
-                <input type="text" name="time"value="<%= run.time %>">
+                <input type="text" name="time"value="<%= bike.time %>">
             </div>
             <!--  above from edit  -->
-            <select name="run" id="run">
-                <% run.forEach((run) => { %> */
-                <option value="<%= run.id %>"><%= run.name %></option>
+            <select name="bike" id="bike">
+                <% bike.forEach((bike) => { %> */
+                <option value="<%= bike.id %>"><%= bike.name %></option>
                 <%  }); %> 
             </select>
         </form>

@@ -7,22 +7,22 @@
     <title>Fitness Tracker</title>
 </head>
 <body>
-    <h2>Edit Info For Runs: <%= run.name %></h2>
+    <h2>Edit Info For Bikes: <%= bike.name %></h2>
 
-    <form action="/runs/<%= run._id %>" method="POST">
+    <form action="/bikes/<%= bike._id %>" method="POST">
     
     
     <div>
         <label for="route">Route</label>
-        <input type="text" name="route"value="<%= run.route %>">
+        <input type="text" name="route"value="<%= bike.route %>">
     </div>
     <div>
         <label for="distance">Distance</label>
-        <input type="text" name="distance"value="<%= run.distance %>">
+        <input type="text" name="distance"value="<%= bike.distance %>">
     </div>
     <div>
         <label for="time">Time</label>
-        <input type="text" name="time"value="<%= run.time %>">
+        <input type="text" name="time"value="<%= bike.time %>">
     </div>
     
     <input type="submit">

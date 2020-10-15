@@ -8,15 +8,15 @@
 </head>
 <body>
     
-    <h2><%= run.route %></h2>
-    <p>Miles: <%= run.distance %></p>
-    <p>Minutes: <%= run.time %></p>
+    <h2><%= bike.route %></h2>
+    <p>Miles: <%= bike.distance %></p>
+    <p>Minutes: <%= bike.time %></p>
     
-    <form action="/runs/<%= run.id %>?_method=DELETE" method="POST">
+    <form action="/bikes/<%= bike.id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
       </form>
       
-      <form action="/runs/<%= run.id %>/edit" method="GET">
+      <form action="/bikes/<%= bike.id %>/edit" method="GET">
         <input type="submit" value="Update">
       </form>
 </body>
