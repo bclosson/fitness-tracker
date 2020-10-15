@@ -19,7 +19,7 @@
         <div class="list-group">
           <% allWorkouts.forEach((workout, index) => { %>
           <a href="/workouts/<%= workout.id %>" class="list-group-item list-group-item-action">
-            <%= workout.name %>:  <%= workout.date.toString('yyyy-MM-dd') %>
+            <%= workout.name %>:  <%= workout.date %>
           </a>
           <% }) %>
         </div>
