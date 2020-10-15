@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include('../partials/navbar') %>
-    <title>Fitness Tracker</title>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <%- include('../partials/navbar') %>
+  <%- include('../partials/footer') %>
+  <title>Fitness Tracker</title>
 </head>
-<body>
-    
-    <h2><%= run.route %></h2>
-    <p>Miles: <%= run.distance %></p>
-    <p>Minutes: <%= run.time %></p>
-    <form action="/runs/<%= run.id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
-      </form>
+<div class="container">
+  <body>
+    <main>
+      <br>
+      <h2><%= run.route %></h2>
+      <br>
+      <p>Miles: <%= run.distance %></p>
+      <p>Minutes: <%= run.time %></p>
+      <section>
+
+        <!-- <form action="/runs/<%= run.id %>/edit" method="GET">
+          <div class="form-group">
+            <button type="submit" value="Edit" class="btn btn-primary">Edit</button>
+          </div>
+        </form> -->
+
+        <form action="/runs/<%= run.id %>?_method=DELETE" method="POST">
+          <div class="form-group">
+            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+          </div>
+        </form>
       
-      <form action="/runs/<%= run.id %>/edit" method="GET">
-        <input type="submit" value="Update">
-      </form>
-</body>
+      </section>
+    </main>
+  </body>
+</div>
 </html>
