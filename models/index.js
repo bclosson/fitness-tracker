@@ -20,4 +20,7 @@ module.exports = {
     User: require('./User'),
     Workout: require('./Workout'),
     Run: require('./Run'),
+    Bike: require('./Bike'),
+    Hiit: require('./Hiit'),
+    Lift: require('./Lift'),
 };

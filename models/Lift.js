@@ -1,16 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const runSchema = new Schema({
-    route: {
+const liftSchema = new Schema({
+    muscle_group: {
         type: String,
         required: true,
     },
-    distance: {
+    exercise: {
+        type: String,
+        required: true,
+    },
+    weight: {
         type: Number,
         required: true,
     },
-    time: {
+    sets: {
         type: Number,
         required: true,
     },
@@ -20,6 +24,6 @@ const runSchema = new Schema({
     }]
 }, {timestamps: true});
 
-const Run = mongoose.model('Run', runSchema);
+const Lift = mongoose.model('Lift', liftSchema);
 
-module.exports = Run;
+module.exports = Lift;

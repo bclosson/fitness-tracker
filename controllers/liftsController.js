@@ -3,19 +3,19 @@ const router = express.Router();
 
 //Database
 const db = require('../models');
-const { populate } = require('../models/Run');
+const { populate } = require('../models/Lift');
 
 // Current path = '/runs'
 
 // GET Index
 router.get('/', (req,res) => {
     // Get data from all runs
-    db.Run.find({}, (err, allRuns) => {
+    db.Lift.find({}, (err, allLifts) => {
         if (err) return console.log(err);
 
-        const context = {allRuns};
+        const context = {allLifts};
 
-        res.render('runs/index', context);
+        res.render('lifts/index', context);
     })
 });
 
@@ -28,36 +28,36 @@ router.get('/new', (req, res) => {
             workouts: allWorkouts
         };
 
-        res.render('runs/new', context);
+        res.render('lifts/new', context);
     });
 });
 
 // GET Show
-router.get('/:runId', (req, res) => {
-    db.Run.findById(req.params.runId)
-    .populate('runs','workout')
-    .exec((err, runId) => {
+router.get('/:liftId', (req, res) => {
+    db.Lift.findById(req.params.liftId)
+    .populate('lifts','workout')
+    .exec((err, liftId) => {
         if (err) return console.log(err);
 
-        // console.log('runId:', runId);
+        // console.log('liftId:', liftId);
 
-        res.render('runs/show', {run: runId});
+        res.render('lifts/show', {lift: liftId});
     });
 });
 
 // POST Create
 router.post('/:workoutId', (req, res) => {
-    db.Run.create(req.body, (err, newRun) => {
+    db.Lift.create(req.body, (err, newLift) => {
         if (err) return console.log(err);
 
         db.Workout.findById(req.params.workoutId, (err, foundWorkout) => {
             if (err) return console.log(err);
 
-            foundWorkout.runs.push(newRun._id);
+            foundWorkout.lifts.push(newLift._id);
             foundWorkout.save((err, savedWorkout) => {
                 if (err) return console.log(err);
                 
-                res.redirect(`/runs`);
+                res.redirect(`/lifts`);
             })
         })
     });
@@ -69,27 +69,27 @@ router.get('/edit/:workoutId', (req, res) => {
     db.Workout.findById(req.params.workoutId, (err, foundWorkout) => {
         if (err) return console.log(err);
         context = {
-            run: foundWorkout,
+            lift: foundWorkout,
         };
-        res.render('runs/edit', context);
+        res.render('lifts/edit', context);
     });
 });
 
 // DELETE Destroy
-router.delete('/:runId', (req, res) => {
-    const runId = req.params.runId;
+router.delete('/:liftId', (req, res) => {
+    const liftId = req.params.liftId;
 
-    db.Run.findByIdAndDelete(runId, (err) => {
+    db.Lift.findByIdAndDelete(liftId, (err) => {
         if (err) return console.log(err);
 
-        db.Workout.findOne({'runs': runId}, (err, foundWorkout) => {
+        db.Workout.findOne({'lifts': liftId}, (err, foundWorkout) => {
             if (err) return console.log(err);
 
-            foundWorkout.runs.remove(runId);
+            foundWorkout.lifts.remove(liftId);
             foundWorkout.save((err, updatedWorkout) => {
                 if (err) return console.log(err);
 
-                res.redirect('/runs');
+                res.redirect('/lifts');
             });
         });
     });
@@ -97,15 +97,15 @@ router.delete('/:runId', (req, res) => {
 });
 
 // PUT Update
-router.put('/:runId', (req, res) => {
-    db.Run.findByIdAndUpdate(
-        req.params.runId,
+router.put('/:liftId', (req, res) => {
+    db.Lift.findByIdAndUpdate(
+        req.params.liftId,
         req.body,
         {new: true},
-        (err, updatedRun) => {
+        (err, updatedLift) => {
             if (err) return console.log(err);
 
-            res.redirect(`/runs/${updatedRun.id}`);
+            res.redirect(`/lifts/${updatedLift.id}`);
         }
     );
 });

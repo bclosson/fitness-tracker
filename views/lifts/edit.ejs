@@ -13,22 +13,30 @@
 <div class="container">
     <body>
         <main>
-            <br>
-            <h2>All Runs</h2>
-            <br>
-            <div class="list-group">
-                <ul>
-                    <% allRuns.forEach((run, index) => { %>
-                    <li class="list-group-item list-group-item-action">
-                        <a href="/runs/<%= run.id %>">
-                        <h2>Route: <%= run.route %></h2>
-                        </a>
-                        <p>Miles: <%= run.distance %></p>
-                        <p>Minutes: <%= run.time %></p>
-                    </li>
-                    <% }) %>
-                </ul>
-            </div>
+        <br>
+        <h2>Edit Info For Lifts: <%= lift.name %></h2>
+        <br>
+            <form action="/lifts/<%= lift._id %>" method="POST">
+                <div>
+                    <label for="muscle_group">Muscle-Group</label>
+                    <input type="text" name="muscle_group"  value="<%= lift.muscle_group %>" class="form-control" placeholder="Muscle Group">
+                </div>
+                <div>
+                    <label for="exercise">Exercise</label>
+                    <input type="text" name="exercise"value="<%= lift.exercise %>" class="form-control" placeholder="Exercise">
+                </div>
+                <div>
+                    <label for="weight">Weight</label>
+                    <input type="text" name="weight"value="<%= lift.weight %>" class="form-control" placeholder="Weight">
+                </div>
+                <div>
+                    <label for="sets">Sets</label>
+                    <input type="text" name="sets"value="<%= lift.sets %>" class="form-control" placeholder="Sets">
+                </div>
+
+                <button type="submit" value="update lifts" class="btn btn-primary">Save</button>
+            
+            </form>
         </main>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
