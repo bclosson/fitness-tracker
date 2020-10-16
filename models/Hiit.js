@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const runSchema = new Schema({
-    route: {
+const hiitSchema = new Schema({
+    circuit: {
         type: String,
         required: true,
     },
-    distance: {
+    cycles: {
         type: Number,
         required: true,
     },
@@ -20,6 +20,6 @@ const runSchema = new Schema({
     }]
 }, {timestamps: true});
 
-const Run = mongoose.model('Run', runSchema);
+const Hiit = mongoose.model('Hiit', hiitSchema);
 
-module.exports = Run;
+module.exports = Hiit;

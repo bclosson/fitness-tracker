@@ -26,18 +26,25 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Workout Name: </label>
-            <input name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Cycling">
-          </div>
+          <!-- drop down box added for workout type -->
+        <label>Workout Type: </label>  
+        <select name="name" class="form-control" id="workout">
+          <option value=""></option>
+          <option type="text" value="Run">Run</option>
+          <option type="text" value="Bike">Bike</option>
+          <option type="text" value="Hiit">HIIT</option>
+          <option type="text" value="Lift">Lift</option>
+        </select>
+  
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Workout Date: </label>
+          <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Workout Date: </label>
-            <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-      </main>
+
+    </main>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

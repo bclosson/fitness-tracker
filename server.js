@@ -35,6 +35,15 @@ app.use('/workouts', ctrl.workouts);
 // -- RUNS Route
 app.use('/runs', ctrl.runs);
 
+// -- BIKES Route
+app.use('/bikes', ctrl.bikes);
+
+// -- HIITS Route
+app.use('/hiits', ctrl.hiits);
+
+// -- LIFTS Route
+app.use('/lifts', ctrl.lifts);
+
 // -- 404
 
 app.use('*', (req, res) => {

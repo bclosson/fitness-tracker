@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const runSchema = new Schema({
+const bikeSchema = new Schema({
     route: {
         type: String,
         required: true,
@@ -20,6 +20,6 @@ const runSchema = new Schema({
     }]
 }, {timestamps: true});
 
-const Run = mongoose.model('Run', runSchema);
+const Bike = mongoose.model('Bike', bikeSchema);
 
-module.exports = Run;
+module.exports = Bike;
