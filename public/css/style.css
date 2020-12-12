@@ -12,7 +12,11 @@
 }
 
 body {
-    background: var(--background);
+    background-image: url("../Images/OutdoorBiking.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    /* background: var(--background); */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,6 +26,26 @@ body {
     font-size: 16px;
     padding: 0;
     margin: 0;
+}
+
+.jumbotron {
+    background-color: rgb(97, 92, 87);
+    opacity: .75;
+}
+
+.display-4 {
+    color: oldlace;
+    font-weight: bolder;
+}
+
+.lead {
+    color: oldlace;
+    font-weight: bold;
+}
+
+#jumbotron-button {
+    background-color: silver;
+    border: black;
 }
 
 .light {
@@ -38,6 +62,7 @@ body {
 
 .share {
     background: var(--background-alt);
+    opacity: 1;
     width: 280px;
     height: 80px;
     display: flex;
@@ -49,6 +74,10 @@ body {
     position: relative;
     overflow: hidden;
     transition: transform .3s linear;
+}
+
+#share-text {
+    color: cornsilk;
 }
 
 .share:hover {
@@ -84,6 +113,10 @@ body {
     color: var(--background-inverse);
     opacity: 0;
     transition: opacity .6s linear;
+}
+
+#footer {
+    background-color: none;
 }
 
 .share:hover .share-icon {

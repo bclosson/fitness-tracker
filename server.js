@@ -20,6 +20,8 @@ app.use(morgan(':method :url'));
 
 app.use(methodOverride('_method'));
 
+app.use('/public', express.static('public'));
+
 //-------------------------------- ROUTES
 //-- HOME Route
 app.get('/', (req, res) => {
