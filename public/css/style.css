@@ -12,10 +12,6 @@
 }
 
 body {
-    background-image: url("../Images/OutdoorBiking.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
     /* background: var(--background); */
     min-height: 100vh;
     display: flex;
@@ -26,6 +22,14 @@ body {
     font-size: 16px;
     padding: 0;
     margin: 0;
+}
+
+/* HOME PAGE  */
+#home-index {
+    background-image: url("../Images/OutdoorBiking.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
 }
 
 .jumbotron {
@@ -48,6 +52,7 @@ body {
     border: black;
 }
 
+
 .light {
     --background: #f1f1f1;
     --background-alt: #dfe6e9;
@@ -60,6 +65,15 @@ body {
     --background-inverse: #f1f1f1;
 }
 
+/* USER INDEX PAGE */
+#user-index {
+    background-image: url("../Images/running-pic.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+/* SOCIAL MEDIAL BUTTONS/ANIMATIONS */
 .share {
     background: var(--background-alt);
     opacity: 1;
@@ -142,3 +156,4 @@ body {
 .linkedin:hover {
     background: var(--linkedin);
 }
+
