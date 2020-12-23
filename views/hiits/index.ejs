@@ -13,16 +13,16 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-    <body>
+    <body id="hiit-index">
         <main>
             <br>
-            <h2>All Hiits</h2>
+            <h2 id="hiit-index-h2">All HIITS</h2>
             <br>
             <ul>
                 <% allHiits.forEach((hiit, index) => { %>
-                <li class="list-group-item list-group-item-action">
+                <li class="list-group-item list-group-item-action" id="hiits-index-box">
                     <a href="/hiits/<%= hiit.id %>">
-                    <h2>Circuit: <%= hiit.circuit %></h2>
+                    <h2 id="hiit-index-h2">Circuit: <%= hiit.circuit %></h2>
                     </a>
                     <p>Cycles: <%= hiit.cycles %></p>
                     <p>Minutes: <%= hiit.time %></p>

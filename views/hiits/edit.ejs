@@ -13,26 +13,30 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-    <body>
+    <body id="hiit-edit">
         <main>
         <br>
-        <h2>Edit Info For HIIT: <%= hiit.name %></h2>
+        <h2 id="hiit-edit-h2">Edit Info For HIIT:</h2>
         <br>
             <form action="/hiits/<%= hiit._id %>" method="POST">
                 <div>
-                    <label for="circuit">Circuit</label>
-                    <input type="text" name="circuit"value="<%= hiit.circuit %>" class="form-control" placeholder="Circuit Name">
+                    <label for="circuit" id="hiit-edit-label">Circuit</label>
+                    <input type="text" name="circuit" value="<%= hiit.circuit %>" class="form-control" 
+                        id="hiit-edit-box" placeholder="Circuit Name">
                 </div>
                 <div>
-                    <label for="cycles">Cycles</label>
-                    <input type="text" name="cycles"value="<%= hiit.cycles %>" class="form-control" placeholder="Number Of Cycles">
+                    <label for="cycles" id="hiit-edit-label">Cycles</label>
+                    <input type="text" name="cycles"value="<%= hiit.cycles %>" class="form-control" 
+                        id="hiit-edit-box" placeholder="Number Of Cycles">
                 </div>
                 <div>
-                    <label for="time">Time</label>
-                    <input type="text" name="time"value="<%= hiit.time %>" class="form-control" placeholder="Minutes">
+                    <label for="time" id="hiit-edit-label">Time</label>
+                    <input type="text" name="time"value="<%= hiit.time %>" class="form-control" 
+                        id="hiit-edit-box" placeholder="Minutes">
                 </div>
     
-                <button type="submit" value="update hiit" class="btn btn-primary">Save</button>
+                <button type="submit" value="update hiit" class="btn btn-primary"
+                    id="hiit-edit-button">Save</button>
             </form>
         </main>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

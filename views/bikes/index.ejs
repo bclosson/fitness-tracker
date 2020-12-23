@@ -16,17 +16,17 @@
     <body id="bike-index">
         <main>
             <br>
-            <h2>All Bikes</h2>
+            <h2 id="bike-index-h2">All Bikes</h2>
             <br>
             <div class="list-group">
                 <ul>
                     <% allBikes.forEach((bike, index) => { %>
-                    <li class="list-group-item list-group-item-action">
+                    <li class="list-group-item list-group-item-action" id="bike-index-box">
                         <a href="/bikes/<%= bike.id %>">
-                        <h2>Route: <%= bike.route %></h2>
+                        <h4 id="bike-index-h2">Route: <%= bike.route %></h2>
                         </a>
-                        <p>Miles: <%= bike.distance %></p>
-                        <p>Minutes: <%= bike.time %></p>
+                        <p id="bike-index-h2">Miles: <%= bike.distance %></p>
+                        <p id="bike-index-h2">Minutes: <%= bike.time %></p>
                     </li>
                     <% }) %>
                 </ul>

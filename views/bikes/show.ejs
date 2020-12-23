@@ -13,24 +13,26 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="bike-show">
     <main>
       <br>
-      <h2><%= bike.route %></h2>
+      <h2 id="bike-show-h2"><%= bike.route %></h2>
       <br>
-      <p>Miles: <%= bike.distance %></p>
-      <p>Minutes: <%= bike.time %></p>
+      <p id="bike-show-h2">Miles: <%= bike.distance %></p>
+      <p id="bike-show-h2">Minutes: <%= bike.time %></p>
 
       <section>
-        <form action="/bikes/<%= bike.id %>/edit" method="GET">
+        <!-- <form action="/bikes/<%= bike.id %>/edit" method="GET">
           <div class="form-group">
-            <button type="submit" value="Edit" class="btn btn-primary">Edit</button>
+            <button type="submit" value="Edit" class="btn btn-primary"
+              id="bike-show-button">Edit</button>
           </div>
-        </form>
+        </form> -->
 
         <form action="/bikes/<%= bike.id %>?_method=DELETE" method="POST">
           <div class="form-group">
-            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+            <button type="submit" value="Delete" class="btn btn-primary"
+              id="bike-show-button">Delete</button>
         </div>
         </form>
       </section>

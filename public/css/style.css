@@ -299,7 +299,7 @@ body {
 }
 
 #edit-bike-h2 {
-    color: white;
+    color: #f1f1f1;
     text-shadow: 1px 1px #2d3436;
     margin: 3px 0;
 }
@@ -326,6 +326,170 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
+}
+
+#bike-index-h2 {
+    color: #2d3436;
+    text-shadow: 1px 1px #f1f1f1;
+}
+
+#bike-index-box {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 400px;
+}
+
+/* BIKING SHOW PAGE */
+#bike-show {
+    background-image: url("../Images/biking-pass.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#bike-show-h2 {
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
+    margin: 3px 0;
+}
+
+#bike-show-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 5px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* HIIT EDIT */
+#hiit-edit {
+    background-image: url("../Images/beach-hiit.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#hiit-edit-h2 {
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
+    margin: 3px 0;
+}
+
+#hiit-edit-label {
+    font-weight: 400;
+    font-size: 20px;
+    color: #2d3436;
+    text-shadow: 1px 1px #f1f1f1;
+    margin: 3px 0;
+}
+
+#hiit-edit-box {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 400px;
+}
+
+#hiit-edit-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 5px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* HIIT INDEX PAGE */
+#hiit-index {
+    background-image: url("../Images/box-and-bag.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#hiit-index-h2 {
+    color: #2d3436;
+    text-shadow: 1px 1px #f1f1f1;
+    margin: 3px 0;
+}
+
+#hiits-index-box {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 7px 0;
+    width: 400px;
+}
+
+/* HIITS SHOW PAGE */
+#hiit-show {
+    background-image: url("../Images/kettle-bells.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#hiit-show-h2 {
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
+    margin: 3px 0;
+}
+
+#hiit-show-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 5px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* LIFT EDIT PAGE */
+#lift-edit {
+    background-image: url("../Images/plate-feet.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#lift-edit-h2 {
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
+    margin: 3px 0;
+}
+
+#lift-edit-label {
+    font-weight: 400;
+    font-size: 20px;
+    color: #2d3436;
+    text-shadow: 1px 1px #f1f1f1;
+    margin: 3px 0;
+}
+
+#lift-edit-box {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 400px;
+}
+
+#lift-edit-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 5px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
 }
 
 /* SOCIAL MEDIAL BUTTONS/ANIMATIONS */

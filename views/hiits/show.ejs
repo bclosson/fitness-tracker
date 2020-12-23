@@ -12,24 +12,26 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="hiit-show">
     <main>
       <br>
-      <h2><%= hiit.circuit %></h2>
+      <h2 id="hiit-show-h2"><%= hiit.circuit %></h2>
       <br>
-      <p>Miles: <%= hiit.cycles %></p>
-      <p>Minutes: <%= hiit.time %></p>
+      <p id="hiit-show-h2">Cycles: <%= hiit.cycles %></p>
+      <p id="hiit-show-h2">Minutes: <%= hiit.time %></p>
       <section>
 
-        <form action="/hiits/<%= hiit.id %>/edit" method="GET">
+        <!-- <form action="/hiits/<%= hiit.id %>/edit" method="GET">
           <div class="form-group">
-            <button type="submit" value="Edit" class="btn btn-primary">Edit</button>
+            <button type="submit" value="Edit" class="btn btn-primary"
+              id="hiit-show-button">Edit</button>
           </div>
-        </form>
+        </form> -->
 
         <form action="/hiits/<%= hiit.id %>?_method=DELETE" method="POST">
           <div class="form-group">
-            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+            <button type="submit" value="Delete" class="btn btn-primary"
+              id="hiit-show-button">Delete</button>
           </div>
         </form>
       

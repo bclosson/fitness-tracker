@@ -13,30 +13,35 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-    <body>
+    <body id="lift-edit">
         <main>
         <br>
-        <h2>Edit Info For Lifts: <%= lift.name %></h2>
+        <h2 id="lift-edit-h2">Edit Info For Lifts: <%= lift.name %></h2>
         <br>
             <form action="/lifts/<%= lift._id %>" method="POST">
                 <div>
-                    <label for="muscle_group">Muscle-Group</label>
-                    <input type="text" name="muscle_group"  value="<%= lift.muscle_group %>" class="form-control" placeholder="Muscle Group">
+                    <label for="muscle_group" id="lift-edit-label">Muscle-Group</label>
+                    <input type="text" name="muscle_group"  value="<%= lift.muscle_group %>" 
+                        class="form-control" id="lift-edit-box" placeholder="Muscle Group">
                 </div>
                 <div>
-                    <label for="exercise">Exercise</label>
-                    <input type="text" name="exercise"value="<%= lift.exercise %>" class="form-control" placeholder="Exercise">
+                    <label for="exercise" id="lift-edit-label">Exercise</label>
+                    <input type="text" name="exercise"value="<%= lift.exercise %>" 
+                        class="form-control" id="lift-edit-box" placeholder="Exercise">
                 </div>
                 <div>
-                    <label for="weight">Weight</label>
-                    <input type="text" name="weight"value="<%= lift.weight %>" class="form-control" placeholder="Weight">
+                    <label for="weight" id="lift-edit-label">Weight</label>
+                    <input type="text" name="weight"value="<%= lift.weight %>" 
+                        class="form-control"id="lift-edit-box" placeholder="Weight">
                 </div>
                 <div>
-                    <label for="sets">Sets</label>
-                    <input type="text" name="sets"value="<%= lift.sets %>" class="form-control" placeholder="Sets">
+                    <label for="sets" id="lift-edit-label">Sets</label>
+                    <input type="text" name="sets"value="<%= lift.sets %>"  
+                        class="form-control" id="lift-edit-box" placeholder="Sets">
                 </div>
 
-                <button type="submit" value="update lifts" class="btn btn-primary">Save</button>
+                <button type="submit" value="update lifts" class="btn btn-primary"
+                    id="lift-edit-button">Save</button>
             
             </form>
         </main>
