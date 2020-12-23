@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <%- include('../partials/navbar') %>
   <%- include('../partials/footer') %>
+  <%- include('../partials/style') %>
+  
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="workout-edit">
     <main>
       <br>
       <h2>Edit Info for Workout: <%=workout.name%></h2>
@@ -26,7 +28,8 @@
           <input type="date" name="date" value="<%= workout.date %>" class="form-control" id="inputDate1" aria-describedby="emailHelp">
         </div>
 
-        <button type="submit" value="Update Workout" class="btn btn-primary">Save</button>
+        <button type="submit" value="Update Workout" class="btn btn-primary"
+        id="workout-edit-button">Save</button>
       </form>
     </main>
     

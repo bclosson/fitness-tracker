@@ -8,18 +8,20 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <%- include('../partials/navbar') %>
   <%- include('../partials/footer') %>
+  <%- include('../partials/style') %>
+  
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="new-workout">
     <main>
       <br>
-      <h2>Add New Workout</h2>
+      <h2 id="new-workout-h2">Add New Workout</h2>
       <br>
         <form action="/workouts" method="POST">
           <div class="form-group">
-            <label for="exampleFormControlSelect1">User: </label>
-            <select name ="user" class="form-control" id="exampleFormControlSelect1">
+            <label for="exampleFormControlSelect1" id="new-workout-label">User: </label>
+            <select name ="user" class="form-control" id="new-workout-box">
               <% users.forEach((user) => { %>
                 <option value="<%= user.id %>"><%= user.name %></option>
                 <% }) %>
@@ -27,8 +29,8 @@
           </div>
 
           <!-- drop down box added for workout type -->
-        <label>Workout Type: </label>  
-        <select name="name" class="form-control" id="workout">
+        <label id="new-workout-label">Workout Type: </label>  
+        <select name="name" class="form-control" id="new-workout-box">
           <option value=""></option>
           <option type="text" value="Run">Run</option>
           <option type="text" value="Bike">Bike</option>
@@ -37,11 +39,11 @@
         </select>
   
         <div class="form-group">
-          <label for="exampleFormControlInput1">Workout Date: </label>
-          <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="">
+          <label for="exampleFormControlInput1" id="new-workout-label">Workout Date: </label>
+          <input name="date" type="date" class="form-control" id="new-workout-box" placeholder="">
         </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="new-workout-btn">Submit</button>
         </form>
 
     </main>

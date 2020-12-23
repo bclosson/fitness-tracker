@@ -8,19 +8,21 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <%- include('../partials/navbar') %>
   <%- include('../partials/footer') %>
+  <%- include('../partials/style') %>
+
     <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="new-user">
     <main>
       <br>
-      <h2>Add New User</h2>
+      <h2 id="new-user-h2">Add New User</h2>
       <form action="/users" method="POST">
         <div class="form-group">
-          <label for="name">Name: </label>
-          <input name="name" type="text" id="name" class="form-control"/>
+          <label for="name" id="new-name">Name: </label>
+          <input name="name" type="text" id="name-box" class="form-control"/>
         </div>
-        <button type="submit" class="btn btn-primary">Add User</button>
+        <button type="submit" class="btn btn-primary" id="add-user-button">Add User</button>
       </form>
     </main>
 

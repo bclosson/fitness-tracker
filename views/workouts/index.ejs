@@ -8,17 +8,20 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <%- include('../partials/navbar') %>
   <%- include('../partials/footer') %>
+  <%- include('../partials/style') %>
+  
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="workout-index">
     <main>
       <br>
-      <h2>All Workouts</h2>
+      <h2 id="workout-index-h2">All Workouts</h2>
       <br>
         <div class="list-group">
           <% allWorkouts.forEach((workout, index) => { %>
-          <a href="/workouts/<%= workout.id %>" class="list-group-item list-group-item-action">
+          <a href="/workouts/<%= workout.id %>" class="list-group-item list-group-item-action"
+            id="workout-box">
             <%= workout.name %>:  <%= workout.date %>
           </a>
           <% }) %>

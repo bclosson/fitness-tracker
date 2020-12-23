@@ -48,8 +48,11 @@ body {
 }
 
 #jumbotron-button {
+    color: black;
+    font-weight: 450;
     background-color: silver;
     border: black;
+    width: auto;
 }
 
 
@@ -71,6 +74,128 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
+}
+
+#user-index-h2 {
+    color: white;
+}
+
+/* ADD NEW USER PAGE */
+#new-user {
+    background-image: url("../Images/tobias-nii-kwatei-quartey-2-kfBa27AyU-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#new-name {
+    color: white;
+}
+
+#new-user-h2 {
+    color: white;
+}
+
+#name-box {
+    background-color: #f1f1f1;
+    border-color: black;
+    border-radius: 2px;
+}
+
+#add-user-button {
+    background: rgba(46, 40, 40, 0.76);
+    border-color: white;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* WORKOUT INDEX PAGE */
+#workout-index {
+    background-image: url("../Images/Rope-Burn.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#workout-index-h2 {
+    color: white;
+}
+
+#workout-box {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 2px 0;
+}
+
+/* WORKOUT SHOW PAGE */
+#workout-show {
+    background-image: url("../Images/Ripped-Pullups.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#workout-show-h2 {
+    color: white;
+}
+
+#username-show {
+    color: white;
+}
+
+#date-show {
+    color: white;
+}
+
+#workout-show-button {
+    color: black;
+    background-color: #f1f1f1;
+    border-color: black;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* WORKOUT EDIT PAGE */
+#workout-edit {
+    background-image: url("../Images/Yoga-Pose.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#workout-edit-button {
+    color: #f1f1f1;
+    background-color: black;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* WORKOUT NEW PAGE */ 
+#new-workout {
+    background-image: url("../Images/Garden-Yoga.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#new-workout-label {
+    text-shadow: 1px 1px grey;
+    font-size: 20px;
+    font-weight: 450;
+}
+
+#new-workout-box {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+#new-workout-btn {
+    color: #f1f1f1;
+    background-color: var(--background-alt);
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
 }
 
 /* SOCIAL MEDIAL BUTTONS/ANIMATIONS */

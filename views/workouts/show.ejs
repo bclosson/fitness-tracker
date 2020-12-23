@@ -8,30 +8,31 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <%- include('../partials/navbar') %>
   <%- include('../partials/footer') %>
+  <%- include('../partials/style') %>
+  
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>  
+  <body id="workout-show">  
     <main>
       <br>
-      <h2><%= name %></h2>
+      <h2 id="workout-show-h2"><%= name %></h2>
       <br>
-      <a href="/users/<%= user.id %>"><p><%= user.name %></p></a>
-      <p><%= date %></p>
+      <a href="/users/<%= user.id %>"><p id="username-show"><%= user.name %></p></a>
+      <p id="date-show"><%= date %></p>
       <br>
-
-  <h2><%= name %></h2>
-  <p><%= date %></p>
       <section>
         <form action="/workouts/<%= id %>/edit" method="GET">
           <div class="form-group">
-            <button type="submit" value="Edit" class="btn btn-primary">Edit</button>
+            <button type="submit" value="Edit" class="btn btn-primary"
+            id="workout-show-button">Edit</button>
           </div>
         </form>
 
         <form action="/workouts/<%= id %>?_method=DELETE" method="POST">
           <div class="form-group">
-            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+            <button type="submit" value="Delete" class="btn btn-primary"
+            id="workout-show-button">Delete</button>
           </div>
         </form>
       </section>
