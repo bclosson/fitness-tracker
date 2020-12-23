@@ -85,6 +85,7 @@ body {
     font-size: 20px;
     font-weight: 400;
     background-color: #f1f1f1;
+    line-height: 8px;
     width: 400px;
 }
 
@@ -110,6 +111,7 @@ body {
     background-color: #f1f1f1;
     border-color: black;
     border-radius: 5px;
+    line-height: 8px;
     width: 400px;
 }
 
@@ -137,6 +139,7 @@ body {
     background-color: #f1f1f1;
     border-radius: 5px;
     margin: 2px 0;
+    line-height: 15px;
     width: 400px;
 }
 
@@ -204,6 +207,7 @@ body {
 #new-workout-box {
     background-color: #f1f1f1;
     border-radius: 5px;
+    line-height: 8px;
     width: 400px;
 }
 
@@ -232,6 +236,7 @@ body {
     background-color: #f1f1f1;
     width: 400px;
     margin: 5px 0;
+    line-height: 8px;
     border-radius: 5px;
 }
 
@@ -278,6 +283,7 @@ body {
 #runs-edit-box {
     background-color: #f1f1f1;
     border-radius: 5px;
+    line-height: 8px;
     width: 400px;
 }
 
@@ -308,6 +314,7 @@ body {
     font-size: 20px;
     font-weight: 400;
     background-color: #f1f1f1;
+    line-height: 8px;
     width: 400px;
 }
 
@@ -338,6 +345,7 @@ body {
     font-weight: 400;
     background-color: #f1f1f1;
     border-radius: 5px;
+    line-height: 8px;
     margin: 7px 0;
     width: 400px;
 }
@@ -392,6 +400,7 @@ body {
     font-weight: 400;
     background-color: #f1f1f1;
     border-radius: 5px;
+    line-height: 8px;
     margin: 7px 0;
     width: 400px;
 }
@@ -425,6 +434,7 @@ body {
     background-color: #f1f1f1;
     border-radius: 5px;
     padding: 2px;
+    line-height: 8px;
     margin: 7px 0;
     width: 400px;
 }
@@ -479,11 +489,66 @@ body {
     font-weight: 400;
     background-color: #f1f1f1;
     border-radius: 5px;
+    line-height: 8px;
     margin: 7px 0;
     width: 400px;
 }
 
 #lift-edit-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 5px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* LIFT INDEX PAGE */
+#lift-index {
+    background-image: url("../Images/tatted-lift.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#lift-index-h2 {
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
+    margin: 3px 0;
+}
+
+#lift-index-h4 {
+    color: #2d3436;
+    text-shadow: 1px 1px #f1f1f1;
+    margin: 3px 0;
+}
+
+#lift-index-box {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 8px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 7px 0;
+    width: 400px;
+}
+
+/* LIFT SHOW PAGE */
+#lift-show {
+    background-image: url("../Images/deadlift-dude.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#lift-show-h2 {
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
+    margin: 3px 0;
+}
+
+#lift-show-button {
     color: #f1f1f1;
     background-color: #2d3436;
     margin: 5px 0;

@@ -13,14 +13,14 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="lift-show">
     <main>
       <br>
-      <h2><%= lift.muscle_group %></h2>
+      <h2 id="lift-show-h2"><%= lift.muscle_group %></h2>
       <br>
-      <p>Exercise: <%= lift.exercise %></p>
-      <p>Weight: <%= lift.weight %></p>
-      <p>Sets: <%= lift.sets %></p>
+      <p id="lift-show-h2">Exercise: <%= lift.exercise %></p>
+      <p id="lift-show-h2">Weight: <%= lift.weight %></p>
+      <p id="lift-show-h2">Sets: <%= lift.sets %></p>
       <section>
 
         <!-- <form action="/lifts/<%= lift.id %>/edit" method="GET">
@@ -31,7 +31,8 @@
 
         <form action="/lifts/<%= lift.id %>?_method=DELETE" method="POST">
           <div class="form-group">
-            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+            <button type="submit" value="Delete" class="btn btn-primary"
+              id="lift-show-button">Delete</button>
           </div>
         </form>
       
