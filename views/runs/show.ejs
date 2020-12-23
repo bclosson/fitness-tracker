@@ -13,13 +13,13 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-  <body>
+  <body id="runs-show">
     <main>
       <br>
-      <h2><%= run.route %></h2>
+      <h2 id="runs-show-h2"><%= run.route %></h2>
       <br>
-      <p>Miles: <%= run.distance %></p>
-      <p>Minutes: <%= run.time %></p>
+      <p id="runs-show-h2">Miles: <%= run.distance %></p>
+      <p id="runs-show-h2">Minutes: <%= run.time %></p>
 
       <section>
   <!-- <form action="/runs/<%= run.id %>/edit" method="GET">
@@ -30,7 +30,8 @@
 
         <form action="/runs/<%= run.id %>?_method=DELETE" method="POST">
           <div class="form-group">
-            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+            <button type="submit" value="Delete" class="btn btn-primary"
+              id="runs-show-button">Delete</button>
           </div>
         </form>
       </section>

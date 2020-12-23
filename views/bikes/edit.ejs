@@ -13,26 +13,30 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-    <body>
+    <body id="bike-edit">
         <main>
         <br>
-        <h2>Edit Info For Bikes: <%= bike.name %></h2>
+        <h2 id="edit-bike-h2">Edit Info For Bikes:</h2>
         <br>
             <form action="/bikes/<%= bike._id %>" method="POST">
             <div>
-                <label for="route">Route</label>
-                <input type="text" name="route"value="<%= bike.route %>" class="form-control" placeholder="Route Name">
+                <label for="route" id="edit-bike-h2" >Route</label>
+                <input type="text" name="route"value="<%= bike.route %>" class="form-control" 
+                    id="edit-bike-box" placeholder="Route Name">
             </div>
             <div>
-                <label for="distance">Distance</label>
-                <input type="text" name="distance"value="<%= bike.distance %>" class="form-control" placeholder="Miles">
+                <label for="distance" id="edit-bike-h2">Distance</label>
+                <input type="text" name="distance"value="<%= bike.distance %>" class="form-control" 
+                    id="edit-bike-box" placeholder="Miles">
             </div>
             <div>
-                <label for="time">Time</label>
-                <input type="text" name="time"value="<%= bike.time %>" class="form-control" placeholder="Minutes">
+                <label for="time" id="edit-bike-h2">Time</label>
+                <input type="text" name="time"value="<%= bike.time %>" class="form-control" 
+                    id="edit-bike-box" placeholder="Minutes">
             </div>
     
-            <button type="submit" value="update bike" class="btn btn-primary">Save</button>
+            <button type="submit" value="update bike" class="btn btn-primary"
+                id="edit-bike-button">Save</button>
         </form>
         </main>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -77,7 +77,15 @@ body {
 }
 
 #user-index-h2 {
-    color: white;
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
+}
+
+#user-index-box {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #f1f1f1;
+    width: 400px;
 }
 
 /* ADD NEW USER PAGE */
@@ -89,17 +97,20 @@ body {
 }
 
 #new-name {
-    color: white;
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
 }
 
 #new-user-h2 {
-    color: white;
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
 }
 
 #name-box {
     background-color: #f1f1f1;
     border-color: black;
-    border-radius: 2px;
+    border-radius: 5px;
+    width: 400px;
 }
 
 #add-user-button {
@@ -118,13 +129,15 @@ body {
 }
 
 #workout-index-h2 {
-    color: white;
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
 }
 
 #workout-box {
     background-color: #f1f1f1;
     border-radius: 5px;
     margin: 2px 0;
+    width: 400px;
 }
 
 /* WORKOUT SHOW PAGE */
@@ -136,15 +149,18 @@ body {
 }
 
 #workout-show-h2 {
-    color: white;
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
 }
 
 #username-show {
-    color: white;
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
 }
 
 #date-show {
-    color: white;
+    color: #f1f1f1;
+    text-shadow: 1px 1px #2d3436;
 }
 
 #workout-show-button {
@@ -188,6 +204,7 @@ body {
 #new-workout-box {
     background-color: #f1f1f1;
     border-radius: 5px;
+    width: 400px;
 }
 
 #new-workout-btn {
@@ -196,6 +213,119 @@ body {
     border-color: #f1f1f1;
     border-radius: 5px;
     width: 150px;
+}
+
+/* RUNS INDEX PAGE */
+#runs-index {
+    background-image: url("../Images/running-trees.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#runs-index-h2 {
+    color: white;
+    text-shadow: 1px 1px #2d3436;
+}
+
+#runs-index-box {
+    background-color: #f1f1f1;
+    width: 400px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+#runs-box-h2 {
+    color: #2d3436;
+    text-shadow: 1px 1px #f1f1f1;
+}
+
+/* RUNS SHOW PAGE */
+#runs-show {
+    background-image: url("../Images/run-forest-road.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#runs-show-h2 {
+    color: white;
+    text-shadow: 1px 1px #2d3436;
+}
+
+#runs-show-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 20px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* RUNS EDIT PAGE */
+#edit-runs {
+    background-image: url("../Images/running-trees.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#edit-runs-h2 {
+    color: white;
+    text-shadow: 1px 1px #2d3436;
+}
+
+#runs-edit-box {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    width: 400px;
+}
+
+#runs-edit-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 20px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* BIKE EDIT PAGE */
+#bike-edit {
+    background-image: url("../Images/bike-lighting.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#edit-bike-h2 {
+    color: white;
+    text-shadow: 1px 1px #2d3436;
+    margin: 3px 0;
+}
+
+#edit-bike-box {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #f1f1f1;
+    width: 400px;
+}
+
+#edit-bike-button {
+    color: #f1f1f1;
+    background-color: #2d3436;
+    margin: 20px 0;
+    border-color: #f1f1f1;
+    border-radius: 5px;
+    width: 150px;  
+}
+
+/* BIKE INDEX PAGE */
+#bike-index {
+    background-image: url("../Images/mountain-bike.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
 }
 
 /* SOCIAL MEDIAL BUTTONS/ANIMATIONS */

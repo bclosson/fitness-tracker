@@ -13,17 +13,18 @@
   <title>Fitness Tracker</title>
 </head>
 <div class="container">
-    <body>
+    <body id="runs-index">
         <main>
             <br>
-            <h2>All Runs</h2>
+            <h2 id="runs-index-h2">All Runs</h2>
             <br>
             <div class="list-group">
                 <ul>
                     <% allRuns.forEach((run, index) => { %>
-                    <li class="list-group-item list-group-item-action">
+                    <li class="list-group-item list-group-item-action" 
+                        id="runs-index-box">
                         <a href="/runs/<%= run.id %>">
-                        <h2>Route: <%= run.route %></h2>
+                        <h2 id="runs-box-h2">Route: <%= run.route %></h2>
                         </a>
                         <p>Miles: <%= run.distance %></p>
                         <p>Minutes: <%= run.time %></p>
