@@ -27,34 +27,20 @@ app.use("/public", express.static("public"));
 
 //-------------------------------- ROUTES
 //-- HOME Route
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-//---- AUTHENTICATION
-app.get("/posts", authenticateToken, (req, res) => {
-  res.json(posts.filter((post) => post.username === req.user.name));
-});
-
 app.post("/login", (req, res) => {
   // Authenticate user
   const username = req.body.username;
 
-  const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-  res.json({ accessToken: accessToken });
+  jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
 });
 
-function authenticateToken(req, res, nex) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
-}
+app.get("/", (req, res) => {
+  res.render("index");
+});
+//  This is the Demo User Route !!
+app.get("/users", (req, res) => {
+  res.json(users);
+});
 
 // -- USERS Route
 app.use("/users", ctrl.users);
