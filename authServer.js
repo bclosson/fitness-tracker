@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT1 || 3000;
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
@@ -32,47 +32,23 @@ app.get("/", (req, res) => {
 });
 
 //---- AUTHENTICATION
-app.get("/posts", authenticateToken, (req, res) => {
-  res.json(posts.filter((post) => post.username === req.user.name));
+app.get("/workouts", authenticateToken, (req, res) => {
+  res.json(workouts.filter((post) => workouts.username === req.user.name));
 });
 
 app.post("/login", (req, res) => {
   // Authenticate user
   const username = req.body.username;
+  const user = { name: username };
 
-  const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-  res.json({ accessToken: accessToken });
+  const accessToken = generateAccessToken(user);
+  const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+  res.json({ accessToken: accessToken, refreshToken: refreshToken });
 });
 
-function authenticateToken(req, res, nex) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
+function generateAccessToken(user) {
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "15m" });
 }
-
-// -- USERS Route
-app.use("/users", ctrl.users);
-
-// -- WORKOUTS Route
-app.use("/workouts", ctrl.workouts);
-
-// -- RUNS Route
-app.use("/runs", ctrl.runs);
-
-// -- BIKES Route
-app.use("/bikes", ctrl.bikes);
-
-// -- HIITS Route
-app.use("/hiits", ctrl.hiits);
-
-// -- LIFTS Route
-app.use("/lifts", ctrl.lifts);
 
 // -- 404
 
