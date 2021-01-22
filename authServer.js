@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT1 || 3000;
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
@@ -55,24 +55,6 @@ function authenticateToken(req, res, nex) {
     next();
   });
 }
-
-// -- USERS Route
-app.use("/users", ctrl.users);
-
-// -- WORKOUTS Route
-app.use("/workouts", ctrl.workouts);
-
-// -- RUNS Route
-app.use("/runs", ctrl.runs);
-
-// -- BIKES Route
-app.use("/bikes", ctrl.bikes);
-
-// -- HIITS Route
-app.use("/hiits", ctrl.hiits);
-
-// -- LIFTS Route
-app.use("/lifts", ctrl.lifts);
 
 // -- 404
 
