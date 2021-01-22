@@ -73,7 +73,7 @@ router.post(
     }
     const { username, email, password } = req.body;
     try {
-      let user = await User.findOne({
+      let user = await db.User.findOne({
         email,
       });
       if (user) {
@@ -82,7 +82,7 @@ router.post(
         });
       }
 
-      user = new User({
+      user = new db.User({
         username,
         email,
         password,
