@@ -1,643 +1,641 @@
 :root {
-    --base-font: "montserrat", sans-serif;
-    /* Social Colors */
-    --facebook: #3b5998;
-    --twitter: #55acee;
-    --instagram: #517fa4;
-    --linkedin: #0077b5;
+  --base-font: "montserrat", sans-serif;
+  /* Social Colors */
+  --facebook: #3b5998;
+  --twitter: #55acee;
+  --instagram: #517fa4;
+  --linkedin: #0077b5;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    /* background: var(--background); */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--base-font);
-    font-size: 16px;
-    padding: 0;
-    margin: 0;
+  /* background: var(--background); */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--base-font);
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
 }
 
 /* HOME PAGE  */
 #home-index {
-    background-image: url("../Images/OutdoorBiking.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/OutdoorBiking.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 .jumbotron {
-    background-color: rgb(97, 92, 87);
-    opacity: .75;
+  background-color: rgb(97, 92, 87);
+  opacity: 0.75;
 }
 
 .display-4 {
-    color: oldlace;
-    font-weight: bolder;
+  color: oldlace;
+  font-weight: bolder;
 }
 
 .lead {
-    color: oldlace;
-    font-weight: bold;
+  color: oldlace;
+  font-weight: bold;
 }
 
 #jumbotron-button {
-    color: black;
-    font-weight: 450;
-    background-color: silver;
-    border: black;
-    width: auto;
+  color: black;
+  font-weight: 450;
+  background-color: silver;
+  border: black;
+  width: auto;
 }
 
-
 .light {
-    --background: #f1f1f1;
-    --background-alt: #dfe6e9;
-    --background-inverse: #2d3436;
+  --background: #f1f1f1;
+  --background-alt: #dfe6e9;
+  --background-inverse: #2d3436;
 }
 
 .dark {
-    --background: #1f1f1f;
-    --background-alt: #2d3436;
-    --background-inverse: #f1f1f1;
+  --background: #1f1f1f;
+  --background-alt: #2d3436;
+  --background-inverse: #f1f1f1;
 }
 
 /* USER INDEX PAGE */
 #user-index {
-    background-image: url("../Images/running-pic.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/running-pic.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #user-index-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #user-index-box {
-    font-size: 20px;
-    font-weight: 400;
-    background-color: #f1f1f1;
-    line-height: 8px;
-    width: 400px;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #f1f1f1;
+  line-height: 8px;
+  width: 400px;
 }
 
 /* ADD NEW USER PAGE */
 #new-user {
-    background-image: url("../Images/tobias-nii-kwatei-quartey-2-kfBa27AyU-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/tobias-nii-kwatei-quartey-2-kfBa27AyU-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
-#new-name {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
+#new-user-info {
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #new-user-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #name-box {
-    background-color: #f1f1f1;
-    border-color: black;
-    border-radius: 5px;
-    line-height: 8px;
-    width: 400px;
+  background-color: #f1f1f1;
+  border-color: black;
+  border-radius: 5px;
+  line-height: 8px;
+  width: 400px;
 }
 
 #add-user-button {
-    background: rgba(46, 40, 40, 0.76);
-    border-color: white;
-    border-radius: 5px;
-    width: 150px;
+  background: rgba(46, 40, 40, 0.76);
+  border-color: white;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* WORKOUT INDEX PAGE */
 #workout-index {
-    background-image: url("../Images/Rope-Burn.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/Rope-Burn.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #workout-index-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #workout-box {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    margin: 2px 0;
-    line-height: 15px;
-    width: 400px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin: 2px 0;
+  line-height: 15px;
+  width: 400px;
 }
 
 /* WORKOUT SHOW PAGE */
 #workout-show {
-    background-image: url("../Images/Ripped-Pullups.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/Ripped-Pullups.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #workout-show-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #username-show {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #date-show {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #workout-show-button {
-    color: black;
-    background-color: #f1f1f1;
-    border-color: black;
-    border-radius: 5px;
-    width: 150px;
+  color: black;
+  background-color: #f1f1f1;
+  border-color: black;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* WORKOUT EDIT PAGE */
 #workout-edit {
-    background-image: url("../Images/Yoga-Pose.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/Yoga-Pose.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #workout-edit-button {
-    color: #f1f1f1;
-    background-color: black;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: black;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
-/* WORKOUT NEW PAGE */ 
+/* WORKOUT NEW PAGE */
 #new-workout {
-    background-image: url("../Images/Garden-Yoga.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/Garden-Yoga.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #new-workout-label {
-    text-shadow: 1px 1px grey;
-    font-size: 20px;
-    font-weight: 450;
+  text-shadow: 1px 1px grey;
+  font-size: 20px;
+  font-weight: 450;
 }
 
 #new-workout-box {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    line-height: 8px;
-    width: 400px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  line-height: 8px;
+  width: 400px;
 }
 
 #new-workout-btn {
-    color: #f1f1f1;
-    background-color: var(--background-alt);
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: var(--background-alt);
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* RUNS INDEX PAGE */
 #runs-index {
-    background-image: url("../Images/running-trees.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/running-trees.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #runs-index-h2 {
-    color: white;
-    text-shadow: 1px 1px #2d3436;
+  color: white;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #runs-index-box {
-    background-color: #f1f1f1;
-    width: 400px;
-    margin: 5px 0;
-    line-height: 8px;
-    border-radius: 5px;
+  background-color: #f1f1f1;
+  width: 400px;
+  margin: 5px 0;
+  line-height: 8px;
+  border-radius: 5px;
 }
 
 #runs-box-h2 {
-    color: #2d3436;
-    text-shadow: 1px 1px #f1f1f1;
+  color: #2d3436;
+  text-shadow: 1px 1px #f1f1f1;
 }
 
 /* RUNS SHOW PAGE */
 #runs-show {
-    background-image: url("../Images/run-forest-road.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/run-forest-road.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #runs-show-h2 {
-    color: white;
-    text-shadow: 1px 1px #2d3436;
+  color: white;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #runs-show-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 20px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 20px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* RUNS EDIT PAGE */
 #edit-runs {
-    background-image: url("../Images/running-trees.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/running-trees.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #edit-runs-h2 {
-    color: white;
-    text-shadow: 1px 1px #2d3436;
+  color: white;
+  text-shadow: 1px 1px #2d3436;
 }
 
 #runs-edit-box {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    line-height: 8px;
-    width: 400px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  line-height: 8px;
+  width: 400px;
 }
 
 #runs-edit-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 20px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 20px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* BIKE EDIT PAGE */
 #bike-edit {
-    background-image: url("../Images/bike-lighting.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/bike-lighting.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #edit-bike-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
-    margin: 3px 0;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
+  margin: 3px 0;
 }
 
 #edit-bike-box {
-    font-size: 20px;
-    font-weight: 400;
-    background-color: #f1f1f1;
-    line-height: 8px;
-    width: 400px;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #f1f1f1;
+  line-height: 8px;
+  width: 400px;
 }
 
 #edit-bike-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 20px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;  
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 20px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* BIKE INDEX PAGE */
 #bike-index {
-    background-image: url("../Images/mountain-bike.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/mountain-bike.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #bike-index-h2 {
-    color: #2d3436;
-    text-shadow: 1px 1px #f1f1f1;
+  color: #2d3436;
+  text-shadow: 1px 1px #f1f1f1;
 }
 
 #bike-index-box {
-    font-size: 20px;
-    font-weight: 400;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    line-height: 8px;
-    margin: 7px 0;
-    width: 400px;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  line-height: 8px;
+  margin: 7px 0;
+  width: 400px;
 }
 
 /* BIKING SHOW PAGE */
 #bike-show {
-    background-image: url("../Images/biking-pass.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url("../Images/biking-pass.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #bike-show-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
-    margin: 3px 0;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
+  margin: 3px 0;
 }
 
 #bike-show-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 5px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 5px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* HIIT EDIT */
 #hiit-edit {
-    background-image: url("../Images/beach-hiit.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url("../Images/beach-hiit.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #hiit-edit-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
-    margin: 3px 0;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
+  margin: 3px 0;
 }
 
 #hiit-edit-label {
-    font-weight: 400;
-    font-size: 20px;
-    color: #2d3436;
-    text-shadow: 1px 1px #f1f1f1;
-    margin: 3px 0;
+  font-weight: 400;
+  font-size: 20px;
+  color: #2d3436;
+  text-shadow: 1px 1px #f1f1f1;
+  margin: 3px 0;
 }
 
 #hiit-edit-box {
-    font-size: 20px;
-    font-weight: 400;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    line-height: 8px;
-    margin: 7px 0;
-    width: 400px;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  line-height: 8px;
+  margin: 7px 0;
+  width: 400px;
 }
 
 #hiit-edit-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 5px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 5px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* HIIT INDEX PAGE */
 #hiit-index {
-    background-image: url("../Images/box-and-bag.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/box-and-bag.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #hiit-index-h2 {
-    color: #2d3436;
-    text-shadow: 1px 1px #f1f1f1;
-    margin: 3px 0;
+  color: #2d3436;
+  text-shadow: 1px 1px #f1f1f1;
+  margin: 3px 0;
 }
 
 #hiits-index-box {
-    font-size: 20px;
-    font-weight: 400;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 2px;
-    line-height: 8px;
-    margin: 7px 0;
-    width: 400px;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 2px;
+  line-height: 8px;
+  margin: 7px 0;
+  width: 400px;
 }
 
 /* HIITS SHOW PAGE */
 #hiit-show {
-    background-image: url("../Images/kettle-bells.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url("../Images/kettle-bells.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #hiit-show-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
-    margin: 3px 0;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
+  margin: 3px 0;
 }
 
 #hiit-show-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 5px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 5px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* LIFT EDIT PAGE */
 #lift-edit {
-    background-image: url("../Images/plate-feet.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/plate-feet.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #lift-edit-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
-    margin: 3px 0;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
+  margin: 3px 0;
 }
 
 #lift-edit-label {
-    font-weight: 400;
-    font-size: 20px;
-    color: #2d3436;
-    text-shadow: 1px 1px #f1f1f1;
-    margin: 3px 0;
+  font-weight: 400;
+  font-size: 20px;
+  color: #2d3436;
+  text-shadow: 1px 1px #f1f1f1;
+  margin: 3px 0;
 }
 
 #lift-edit-box {
-    font-size: 20px;
-    font-weight: 400;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    line-height: 8px;
-    margin: 7px 0;
-    width: 400px;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  line-height: 8px;
+  margin: 7px 0;
+  width: 400px;
 }
 
 #lift-edit-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 5px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 5px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* LIFT INDEX PAGE */
 #lift-index {
-    background-image: url("../Images/tatted-lift.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
+  background-image: url("../Images/tatted-lift.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #lift-index-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
-    margin: 3px 0;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
+  margin: 3px 0;
 }
 
 #lift-index-h4 {
-    color: #2d3436;
-    text-shadow: 1px 1px #f1f1f1;
-    margin: 3px 0;
+  color: #2d3436;
+  text-shadow: 1px 1px #f1f1f1;
+  margin: 3px 0;
 }
 
 #lift-index-box {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 8px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 2px;
-    margin: 7px 0;
-    width: 400px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 8px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 7px 0;
+  width: 400px;
 }
 
 /* LIFT SHOW PAGE */
 #lift-show {
-    background-image: url("../Images/deadlift-dude.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url("../Images/deadlift-dude.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #lift-show-h2 {
-    color: #f1f1f1;
-    text-shadow: 1px 1px #2d3436;
-    margin: 3px 0;
+  color: #f1f1f1;
+  text-shadow: 1px 1px #2d3436;
+  margin: 3px 0;
 }
 
 #lift-show-button {
-    color: #f1f1f1;
-    background-color: #2d3436;
-    margin: 5px 0;
-    border-color: #f1f1f1;
-    border-radius: 5px;
-    width: 150px;
+  color: #f1f1f1;
+  background-color: #2d3436;
+  margin: 5px 0;
+  border-color: #f1f1f1;
+  border-radius: 5px;
+  width: 150px;
 }
 
 /* SOCIAL MEDIAL BUTTONS/ANIMATIONS */
 .share {
-    background: var(--background-alt);
-    opacity: 1;
-    width: 280px;
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: transform .3s linear;
+  background: var(--background-alt);
+  opacity: 1;
+  width: 280px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s linear;
 }
 
 #share-text {
-    color: cornsilk;
+  color: cornsilk;
 }
 
 .share:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .share:hover .share-cover {
-    transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 .share-cover {
-    background: var(--background-inverse);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 1.6em;
-    text-align: center;
-    line-height: 80px;
-    color: var(--background-alt);
-    border-radius: 20px;
-    transition: transform .6s ease-in-out;
-    z-index: 2;
+  background: var(--background-inverse);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.6em;
+  text-align: center;
+  line-height: 80px;
+  color: var(--background-alt);
+  border-radius: 20px;
+  transition: transform 0.6s ease-in-out;
+  z-index: 2;
 }
 
 .share-icon {
-    flex: 1;
-    height: 80px;
-    text-align: center;
-    font-size: 1.6em;
-    line-height: 80px;
-    color: var(--background-inverse);
-    opacity: 0;
-    transition: opacity .6s linear;
+  flex: 1;
+  height: 80px;
+  text-align: center;
+  font-size: 1.6em;
+  line-height: 80px;
+  color: var(--background-inverse);
+  opacity: 0;
+  transition: opacity 0.6s linear;
 }
 
 #footer {
-    background-color: none;
+  background-color: none;
 }
 
 .share:hover .share-icon {
-    opacity: 1;
+  opacity: 1;
 }
 
 .share-icon:hover {
-    color: var(--background-alt);
+  color: var(--background-alt);
 }
 
 .facebook:hover {
-    background: var(--facebook);
+  background: var(--facebook);
 }
 
 .twitter:hover {
-    background: var(--twitter);
+  background: var(--twitter);
 }
 
 .instagram:hover {
-    background: var(--instagram);
+  background: var(--instagram);
 }
 
 .linkedin:hover {
-    background: var(--linkedin);
+  background: var(--linkedin);
 }
-
