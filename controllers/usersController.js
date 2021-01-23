@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-const Joi = require("@hapi/joi");
+const { registerValidation } = require("../validation");
 
 // Database
 const db = require("../models");
@@ -45,18 +45,14 @@ router.get("/:userId", (req, res) => {
 });
 
 // New Post Create/Validation
-const schema = Joi.object({
-  username: Joi.string().min(6).max(255).required(),
-  email: Joi.string().min(6).max(1024).required().email(),
-  password: Joi.string().min(6).max(1024).required(),
-});
-
 router.post("/", async (req, res) => {
   // validate the user
-  const { error } = schema.validate(req.body);
-  if (error) {
-    return res.status(400).json({ error: error.details[0].message });
-  }
+  const { error } = registerValidation(req.body);
+  if (error) return res.status(400).json({ error: error.details[0].message });
+  const isEmailExist = await User.findOne({ email: req.body.email });
+
+  if (isEmailExist)
+    return res.status(400).json({ error: "Email already exists" });
 
   const user = new User({
     username: req.body.username,
