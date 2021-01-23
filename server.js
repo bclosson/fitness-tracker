@@ -27,19 +27,8 @@ app.use("/public", express.static("public"));
 
 //-------------------------------- ROUTES
 //-- HOME Route
-app.post("/login", (req, res) => {
-  // Authenticate user
-  const username = req.body.username;
-
-  jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-});
-
 app.get("/", (req, res) => {
   res.render("index");
-});
-//  This is the Demo User Route !!
-app.get("/users", (req, res) => {
-  res.json(users);
 });
 
 // -- USERS Route

@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-const { registerValidation } = require("../validation");
+const { registerValidation, loginValidation } = require("../validation");
 
 // Database
 const db = require("../models");
@@ -72,7 +72,31 @@ router.post("/", async (req, res) => {
 });
 
 // User Login
-router.post("/login", async (req, res) => {});
+router.post("/login", async (req, res) => {
+  // validate the user
+  const { error } = loginValidation(req.body);
+
+  // throw validation errors
+  if (error) return res.status(400).json({ error: error.details[0].message });
+
+  const user = await User.findOne({ email: req.body.email });
+
+  // throw error when email is wrong
+  if (!user) return res.status(400).json({ error: "Email is incorrect" });
+
+  // check for password match
+  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  if (!validPassword)
+    return res.status(400).json({
+      error: "Password is incorrect",
+    });
+  res.json({
+    error: null,
+    data: {
+      message: "Login successful",
+    },
+  });
+});
 
 // Get Edit Route
 router.get("/:userId/edit", (req, res) => {
