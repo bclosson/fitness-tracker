@@ -53,11 +53,14 @@ router.post("/", async (req, res) => {
 
   if (isEmailExist)
     return res.status(400).json({ error: "Email already exists" });
+  // hash the password
+  const salt = await bcrypt.genSalt(10);
+  const password = await bcrypt.hash(req.body.password, salt);
 
   const user = new User({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password,
+    password, //hashed password
   });
 
   try {
