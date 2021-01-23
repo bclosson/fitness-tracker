@@ -44,7 +44,7 @@ router.get("/:userId", (req, res) => {
     });
 });
 
-// New Post Create/Validation
+// New Create/Validation
 router.post("/", async (req, res) => {
   // validate the user
   const { error } = registerValidation(req.body);
@@ -72,9 +72,7 @@ router.post("/", async (req, res) => {
 });
 
 // User Login
-// router.post("/login", async (req, res) => {
-//   const user = db.User.find((user) => user_id);
-// });
+router.post("/login", async (req, res) => {});
 
 // Get Edit Route
 router.get("/:userId/edit", (req, res) => {
