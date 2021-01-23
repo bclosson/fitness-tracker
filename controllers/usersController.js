@@ -70,12 +70,16 @@ router.post("/", async (req, res) => {
   } catch {
     res.status(500).send();
   }
+  const context = {
+    user: user.username,
+  };
+  res.render("/", context);
 });
 
 // User Login
-router.post("/login", async (req, res) => {
-  const user = db.User.find((user) => user_id);
-});
+// router.post("/login", async (req, res) => {
+//   const user = db.User.find((user) => user_id);
+// });
 
 // Get Edit Route
 router.get("/:userId/edit", (req, res) => {
