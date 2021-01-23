@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
+const Joi = require("@hapi/joi");
 
 // Database
 const db = require("../models");
@@ -43,37 +44,32 @@ router.get("/:userId", (req, res) => {
     });
 });
 
-// // Post Create
-// router.post('/', (req, res) => {
-//     // Query DB to create new user
-//     db.User.create(req.body, (err, newUser) => {
-//         if (err) return console.log(err);
+// New Post Create/Validation
+const schema = Joi.object({
+  username: Joi.string().min(6).max(255).required(),
+  email: Joi.string().min(6).max(1024).required().email(),
+  password: Joi.string().min(6).max(1024).required(),
+});
 
-//         res.redirect('/users');
-//     });
-// });
-
-// New Post Create
 router.post("/", async (req, res) => {
-  try {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const user = {
-      name: req.body.username,
-      email: req.body.email,
-      password: hashedPassword,
-    };
-    console.log(salt);
-    console.log(hashedPassword);
-    db.User.create(user);
-    res.status(201).send();
-  } catch {
-    res.status(500).send();
+  // validate the user
+  const { error } = schema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ error: error.details[0].message });
   }
-  const context = {
-    user: user.username,
-  };
-  res.render("/", context);
+
+  const user = new User({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  });
+
+  try {
+    const savedUser = await user.save();
+    res.json({ error: null, data: savedUser });
+  } catch (error) {
+    res.status(400).json({ error });
+  }
 });
 
 // User Login
