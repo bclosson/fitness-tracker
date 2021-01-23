@@ -72,7 +72,7 @@ router.post("/", async (req, res) => {
 });
 
 // User Login
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
   // validate the user
   const { error } = loginValidation(req.body);
 
