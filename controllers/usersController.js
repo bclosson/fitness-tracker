@@ -36,17 +36,29 @@ router.get("/login", (req, res) => {
 });
 
 // Get Show Route
-router.get("/:userId", (req, res) => {
-  // Query DB for user by Id
-  db.User.findById(req.params.userId)
-    .populate("workouts")
-    .exec((err, foundUser) => {
-      if (err) return console.log(err);
-      const context = {
-        user: foundUser,
-      };
-      res.render("users/show", context);
-    });
+// router.get("/:userId", (req, res) => {
+//   // Query DB for user by Id
+//   db.User.findById(req.params.userId)
+//     .populate("workouts")
+//     .exec((err, foundUser) => {
+//       if (err) return console.log(err);
+//       const context = {
+//         user: foundUser,
+//       };
+//       res.render("users/show", context);
+//     });
+// });
+
+// New Protected Show User Route
+router.get("/", (req, res) => {
+  res.json({
+    error: null,
+    data: {
+      title: "My dashboard",
+      content: "dashboard content",
+      user: req.user, // token payload information
+    },
+  });
 });
 
 // New Create/Validation
@@ -69,11 +81,14 @@ router.post("/", async (req, res) => {
   });
 
   try {
-    const savedUser = await user.save();
-    res.json({ error: null, data: savedUser });
+    // const savedUser = await user.save();
+    // res.json({ error: null, data: savedUser });
+    await user.save();
+    res.render("users/login");
   } catch (error) {
     res.status(400).json({ error });
   }
+  // res.render("/login");
 });
 
 // User Login
@@ -112,6 +127,7 @@ router.post("/login", async (req, res) => {
       token,
     },
   });
+  res.render("users/show");
 });
 
 // Get Edit Route
