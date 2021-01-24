@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const { registerValidation, loginValidation } = require("../validation");
+const verifyToken = require("../validate-token");
 
 // Database
 const db = require("../models");
@@ -50,13 +51,13 @@ router.get("/login", (req, res) => {
 // });
 
 // New Protected Show User Route
-router.get("/", (req, res) => {
+router.get("/:userId", (req, res) => {
   res.json({
     error: null,
     data: {
       title: "My dashboard",
       content: "dashboard content",
-      user: req.user, // token payload information
+      user: req.params.userId, // token payload information
     },
   });
 });
@@ -82,13 +83,12 @@ router.post("/", async (req, res) => {
 
   try {
     // const savedUser = await user.save();
-    // res.json({ error: null, data: savedUser });
+    // res.json({ error: null, data: savedUser._id });
     await user.save();
     res.render("users/login");
   } catch (error) {
     res.status(400).json({ error });
   }
-  // res.render("/login");
 });
 
 // User Login
@@ -127,7 +127,6 @@ router.post("/login", async (req, res) => {
       token,
     },
   });
-  res.render("users/show");
 });
 
 // Get Edit Route
