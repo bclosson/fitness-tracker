@@ -30,6 +30,11 @@ router.get("/new", (req, res) => {
   res.render("users/new");
 });
 
+// Get Login Route
+router.get("/login", (req, res) => {
+  res.render("users/login");
+});
+
 // Get Show Route
 router.get("/:userId", (req, res) => {
   // Query DB for user by Id
