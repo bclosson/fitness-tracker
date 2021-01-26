@@ -7,21 +7,21 @@ const { registerValidation, loginValidation } = require("../validation");
 const verifyToken = require("../validate-token");
 
 const db = require("../models");
-const { User } = require("../models");
+const User = require("../models/User");
 
 // ROUTES -------------------------------------------
 // New User
 router.get("/newUser", (req, res) => {
-  res.render("/authorization/newUser");
+  res.render("authorization/newUser");
 });
 
 // Login
 router.get("/login", (req, res) => {
-  res.render("/authorization/login");
+  res.render("authorization/login");
 });
 
 // NEW/CREATE VALIDATION -------------------------------
-router.post("/users", async (req, res) => {
+router.post("/newUser", async (req, res) => {
   // validate the user
   const { error } = registerValidation(req.body);
   if (error) return res.status(400).json({ error: error.details[0].message });
