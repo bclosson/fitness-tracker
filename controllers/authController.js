@@ -12,12 +12,12 @@ const { User } = require("../models");
 // ROUTES -------------------------------------------
 // New User
 router.get("/newUser", (req, res) => {
-  res.render("authorization/newUser");
+  res.render("/authorization/newUser");
 });
 
 // Login
 router.get("/login", (req, res) => {
-  res.render("authorization/login");
+  res.render("/authorization/login");
 });
 
 // NEW/CREATE VALIDATION -------------------------------
