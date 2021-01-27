@@ -31,9 +31,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// AUTH Route
-app.use("/authorization", ctrl.authorization);
-
 // -- USERS Route
 app.use("/users", ctrl.users);
 

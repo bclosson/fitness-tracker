@@ -26,29 +26,95 @@ router.get("/", (req, res) => {
   });
 });
 
-// // Get New Route
-// router.get("/new", (req, res) => {
-//   res.render("users/new");
-// });
+// Get New Route
+router.get("/new", (req, res) => {
+  res.render("users/new");
+});
 
-// // Get Login Route
-// router.get("/login", (req, res) => {
-//   res.render("users/login");
-// });
+// NEW/CREATE VALIDATION -------------------------------
+router.post("/", async (req, res) => {
+  // validate the user
+  const { error } = registerValidation(req.body);
+  if (error) return res.status(400).json({ error: error.details[0].message });
+  const isEmailExist = await User.findOne({ email: req.body.email });
+
+  if (isEmailExist)
+    return res.status(400).json({ error: "Email already exists" });
+  // hash the password
+  const salt = await bcrypt.genSalt(10);
+  const password = await bcrypt.hash(req.body.password, salt);
+
+  const user = new User({
+    username: req.body.username,
+    email: req.body.email,
+    password, //hashed password
+  });
+
+  try {
+    const savedUser = await user.save();
+    res.json({ error: null, data: savedUser._id });
+    // await user.save();
+    // res.render("users/login");
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+});
+
+// USER LOGIN ---------------------------------------------
+router.post("/login", async (req, res) => {
+  // validate the user
+  const { error } = loginValidation(req.body);
+
+  // throw validation errors
+  if (error) return res.status(400).json({ error: error.details[0].message });
+
+  const user = await User.findOne({ email: req.body.email });
+
+  // throw error when email is wrong
+  if (!user) return res.status(400).json({ error: "Email is incorrect" });
+
+  // check for password match
+  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  if (!validPassword)
+    return res.status(400).json({
+      error: "Password is incorrect",
+    });
+
+  // create token
+  const token = jwt.sign(
+    // payload data
+    {
+      name: user.username,
+      id: user._id,
+    },
+    process.env.ACCESS_TOKEN_SECRET
+  );
+
+  res.header("auth-token", token).json({
+    error: null,
+    data: {
+      token,
+    },
+  });
+  const context = {
+    user: user._id,
+  };
+  res.render("users/show", context);
+});
 
 // Get Show Route
-// router.get("/:userId", (req, res) => {
-//   // Query DB for user by Id
-//   db.User.findById(req.params.userId)
-//     .populate("workouts")
-//     .exec((err, foundUser) => {
-//       if (err) return console.log(err);
-//       const context = {
-//         user: foundUser,
-//       };
-//       res.render("users/show", context);
-//     });
-// });
+router.get("/:userId", (req, res) => {
+  // Query DB for user by Id
+  db.User.findById(req.params.userId)
+    .populate("workouts")
+    .exec((err, foundUser) => {
+      if (err) return console.log(err);
+      const context = {
+        user: foundUser,
+      };
+      res.render("users/show", context);
+    });
+});
 
 // New Protected Show User Route
 router.get("/:userId", (req, res) => {
@@ -61,73 +127,6 @@ router.get("/:userId", (req, res) => {
     },
   });
 });
-
-// New Create/Validation
-// router.post("/", async (req, res) => {
-//   // validate the user
-//   const { error } = registerValidation(req.body);
-//   if (error) return res.status(400).json({ error: error.details[0].message });
-//   const isEmailExist = await User.findOne({ email: req.body.email });
-
-//   if (isEmailExist)
-//     return res.status(400).json({ error: "Email already exists" });
-//   // hash the password
-//   const salt = await bcrypt.genSalt(10);
-//   const password = await bcrypt.hash(req.body.password, salt);
-
-//   const user = new User({
-//     username: req.body.username,
-//     email: req.body.email,
-//     password, //hashed password
-//   });
-
-//   try {
-//     // const savedUser = await user.save();
-//     // res.json({ error: null, data: savedUser._id });
-//     await user.save();
-//     res.render("users/login");
-//   } catch (error) {
-//     res.status(400).json({ error });
-//   }
-// });
-
-// User Login
-// router.post("/login", async (req, res) => {
-//   // validate the user
-//   const { error } = loginValidation(req.body);
-
-//   // throw validation errors
-//   if (error) return res.status(400).json({ error: error.details[0].message });
-
-//   const user = await User.findOne({ email: req.body.email });
-
-//   // throw error when email is wrong
-//   if (!user) return res.status(400).json({ error: "Email is incorrect" });
-
-//   // check for password match
-//   const validPassword = await bcrypt.compare(req.body.password, user.password);
-//   if (!validPassword)
-//     return res.status(400).json({
-//       error: "Password is incorrect",
-//     });
-
-//   // create token
-//   const token = jwt.sign(
-//     // payload data
-//     {
-//       name: user.username,
-//       id: user._id,
-//     },
-//     process.env.ACCESS_TOKEN_SECRET
-//   );
-
-//   res.header("auth-token", token).json({
-//     error: null,
-//     data: {
-//       token,
-//     },
-//   });
-// });
 
 // Get Edit Route
 router.get("/:userId/edit", (req, res) => {
