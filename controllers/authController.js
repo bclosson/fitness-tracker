@@ -45,8 +45,8 @@ router.post("/", async (req, res) => {
 
   try {
     const savedUser = await user.save();
-    // res.json({ error: null, data: { userId: savedUser._id } });
-    res.render("/dashboard", savedUser);
+    res.json({ error: null, data: { userId: savedUser._id } });
+    // res.render("dashboard/show", savedUser);
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -74,7 +74,7 @@ router.post("/login", async (req, res) => {
   const token = jwt.sign(
     // Payload Data
     {
-      name: user.username,
+      username: user.username,
       id: user._id,
     },
     process.env.ACCESS_TOKEN_SECRET
