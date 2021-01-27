@@ -38,15 +38,15 @@ router.post("/", async (req, res) => {
   const password = await bcrypt.hash(req.body.password, salt);
 
   const user = new User({
-    name: req.body.username,
+    username: req.body.username,
     email: req.body.email,
     password, //hashed password
   });
 
   try {
     const savedUser = await user.save();
-    res.json({ error: null, data: { userId: savedUser._id } });
-    // res.render("dashboard", savedUser);
+    // res.json({ error: null, data: { userId: savedUser._id } });
+    res.render("/dashboard", savedUser);
   } catch (error) {
     res.status(400).json({ error });
   }
