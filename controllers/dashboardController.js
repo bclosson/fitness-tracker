@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+// DASHBOARD ROUTE
 router.get("/", (req, res) => {
   res.json({
     error: null,
