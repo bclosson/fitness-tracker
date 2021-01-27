@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 require("dotenv").config();
+const verifyToken = require("./validate-token");
 
 // Set View Engine
 app.set("view engine", "ejs");
