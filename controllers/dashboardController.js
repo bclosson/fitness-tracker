@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const { Router } = require("express");
+const { User } = require("../models");
 
 // DASHBOARD ROUTE
 router.get("/", (req, res) => {
@@ -10,6 +12,19 @@ router.get("/", (req, res) => {
       user: req.user, // token payload information
     },
   });
+});
+
+// SHOW ROUTE
+router.get("/:userId", (req, res) => {
+  User.findById(req.params.userId)
+    .populate("workouts")
+    .exec((err, foundUser) => {
+      if (err) return console.log(err);
+      const context = {
+        user: foundUser,
+      };
+      res.render("dashboard/show", context);
+    });
 });
 
 module.exports = router;
