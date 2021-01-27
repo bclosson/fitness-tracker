@@ -8,8 +8,6 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 require("dotenv").config();
 const verifyToken = require("./validate-token");
-const authRoutes = require("./controllers/authController");
-// const dashboardRoutes = require("./controllers/dashboardController");
 
 // Set View Engine
 app.set("view engine", "ejs");
@@ -35,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 // -- USERS Route
-app.use("/users", ctrl.users);
+// app.use("/users", ctrl.users);
 
 // -- AUTH Route
 app.use("/auth", ctrl.auth);
