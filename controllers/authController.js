@@ -18,7 +18,7 @@ router.get("/login", (req, res) => {
 const { registerValidation, loginValidation } = require("../validation");
 
 // REGISTER ROUTE
-router.post("/register", async (req, res) => {
+router.post("/users", async (req, res) => {
   // Validate the User
   const { error } = registerValidation(req.body);
 
