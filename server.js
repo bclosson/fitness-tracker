@@ -31,6 +31,9 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// -- DASHBOARD/PROTECTED ROUTE
+app.use("/dashboard", verifyToken, ctrl.dashboard);
+
 // -- USERS Route
 app.use("/users", ctrl.users);
 

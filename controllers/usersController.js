@@ -31,6 +31,11 @@ router.get("/new", (req, res) => {
   res.render("users/new");
 });
 
+// Login Route
+router.get("/login", (req, res) => {
+  res.render("users/login");
+});
+
 // NEW/CREATE VALIDATION -------------------------------
 router.post("/", async (req, res) => {
   // validate the user
@@ -61,7 +66,7 @@ router.post("/", async (req, res) => {
 });
 
 // USER LOGIN ---------------------------------------------
-router.post("/login", async (req, res) => {
+router.post("/users/:userId", async (req, res) => {
   // validate the user
   const { error } = loginValidation(req.body);
 
@@ -96,10 +101,6 @@ router.post("/login", async (req, res) => {
       token,
     },
   });
-  const context = {
-    user: user._id,
-  };
-  res.render("users/show", context);
 });
 
 // Get Show Route

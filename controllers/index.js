@@ -5,4 +5,5 @@ module.exports = {
   bikes: require("./bikesController"),
   hiits: require("./hiitsController"),
   lifts: require("./liftsController"),
+  dashboard: require("./dashboardController"),
 };
