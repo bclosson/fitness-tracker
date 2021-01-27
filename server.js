@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 // -- USERS Route
-app.use("/users", ctrl.users);
+// app.use("/users", ctrl.users);
 
 // -- AUTH Route
 app.use("/auth", ctrl.auth);

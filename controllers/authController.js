@@ -1,7 +1,9 @@
+const express = require("express");
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
+const db = require("../models");
 const User = require("../models/User");
 
 // Register Route
@@ -18,7 +20,7 @@ router.get("/login", (req, res) => {
 const { registerValidation, loginValidation } = require("../validation");
 
 // REGISTER ROUTE
-router.post("/auth", async (req, res) => {
+router.post("/", async (req, res) => {
   // Validate the User
   const { error } = registerValidation(req.body);
 
@@ -38,7 +40,7 @@ router.post("/auth", async (req, res) => {
   const user = new User({
     name: req.body.username,
     email: req.body.email,
-    password,
+    password, //hashed password
   });
 
   try {
