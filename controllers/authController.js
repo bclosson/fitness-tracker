@@ -1,8 +1,18 @@
-const router = require("express").Router;
+const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const User = require("../models/User");
+
+// Register Route
+router.get("/", (req, res) => {
+  res.render("auth/register");
+});
+
+// Login Route
+router.get("/", (req, res) => {
+  res.render("auth/login");
+});
 
 // VALIDATION
 const { registerValidation, loginValidation } = require("../validation");

@@ -35,7 +35,10 @@ app.get("/", (req, res) => {
 });
 
 // -- USERS Route
-app.use("/users", authRoutes, ctrl.users);
+app.use("/users", ctrl.users);
+
+// -- AUTH Route
+app.use("/auth", ctrl.auth);
 
 // -- DASHBOARD/PROTECTED ROUTE
 app.use("/dashboard", verifyToken, ctrl.dashboard);
