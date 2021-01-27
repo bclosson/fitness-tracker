@@ -45,8 +45,8 @@ router.post("/", async (req, res) => {
 
   try {
     const savedUser = await user.save();
-    res.json({ error: null, data: { userId: savedUser._id } });
-    // res.render("dashboard/show", savedUser);
+    // res.json({ error: null, data: { userId: savedUser._id } });
+    res.render("dashboard/:id", savedUser._id);
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -86,10 +86,6 @@ router.post("/login", async (req, res) => {
       token,
     },
   });
-  const context = {
-    user: user.username,
-    id: user._id,
-  };
 });
 
 module.exports = router;
