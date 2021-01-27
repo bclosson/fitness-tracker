@@ -5,12 +5,12 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
 // Register Route
-router.get("/", (req, res) => {
+router.get("/register", (req, res) => {
   res.render("auth/register");
 });
 
 // Login Route
-router.get("/", (req, res) => {
+router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
