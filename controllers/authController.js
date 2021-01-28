@@ -45,8 +45,8 @@ router.post("/", async (req, res) => {
 
   try {
     const savedUser = await user.save();
-    // res.json({ error: null, data: { userId: savedUser._id } });
-    res.render("dashboard/show");
+    res.json({ error: null, data: { userId: savedUser._id } });
+    res.redirect("dashboard/:id");
   } catch (error) {
     res.status(400).json({ error });
   }
