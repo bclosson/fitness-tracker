@@ -43,10 +43,11 @@ router.post("/", async (req, res) => {
     password, //hashed password
   });
 
+  res.redirect("/login");
+
   try {
     const savedUser = await user.save();
     res.json({ error: null, data: { userId: savedUser._id } });
-    res.redirect("dashboard/:id");
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -86,6 +87,7 @@ router.post("/login", async (req, res) => {
       token,
     },
   });
+  res.redirect("dashboard/:id");
 });
 
 module.exports = router;

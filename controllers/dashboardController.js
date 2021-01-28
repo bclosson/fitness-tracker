@@ -3,16 +3,16 @@ const { Router } = require("express");
 const { User } = require("../models");
 
 // DASHBOARD ROUTE
-router.get("/", (req, res) => {
-  res.json({
-    error: null,
-    data: {
-      title: "My dashboard",
-      content: "Dashboard content",
-      user: req.user, // token payload information
-    },
-  });
-});
+// router.get("/", (req, res) => {
+//   res.json({
+//     error: null,
+//     data: {
+//       title: "My dashboard",
+//       content: "Dashboard content",
+//       user: req.user, // token payload information
+//     },
+//   });
+// });
 
 // SHOW ROUTE
 router.get("/:userId", (req, res) => {
