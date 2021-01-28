@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
 });
 
 // LOGIN ROUTE
-router.post("/login", async (req, res) => {
+router.post("/login/:user_id", async (req, res) => {
   // Validate The User
   const { error } = loginValidation(req.body);
 
