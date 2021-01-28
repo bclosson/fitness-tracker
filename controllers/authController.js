@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
 });
 
 // LOGIN ROUTE
-router.post("/dashboard/show", async (req, res) => {
+router.post("/dashboard", async (req, res) => {
   // Validate The User
   const { error } = loginValidation(req.body);
 
