@@ -10,9 +10,9 @@ const verifyToken = (req, res, next) => {
     req.user = verified;
     next(); // to continue the flow
     const context = {
-      user: user.id,
+      data: data,
     };
-    res.redirect("/dashboard/show", context);
+    res.redirect("/dashboard", context);
   } catch (err) {
     res.status(400).json({ error: "Token is not valid" });
   }
