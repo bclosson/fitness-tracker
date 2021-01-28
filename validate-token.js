@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
     const context = {
       data: data,
     };
-    res.redirect("/dashboard", context);
+    res.render("/dashboard", context);
   } catch (err) {
     res.status(400).json({ error: "Token is not valid" });
   }
