@@ -9,7 +9,10 @@ const verifyToken = (req, res, next) => {
     const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.user = verified;
     next(); // to continue the flow
-    res.redirect("/dashboard/show", verified);
+    const context = {
+      user: user.id,
+    };
+    res.redirect("/dashboard/show", context);
   } catch (err) {
     res.status(400).json({ error: "Token is not valid" });
   }
