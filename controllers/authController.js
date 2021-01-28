@@ -73,6 +73,7 @@ router.post("/dashboard", async (req, res) => {
   const token = jwt.sign(
     // Payload Data
     {
+      password: user.password,
       email: user.email,
       id: user._id,
     },
