@@ -1,6 +1,4 @@
-const express = require("express");
 const router = require("express").Router();
-const { User } = require("../models");
 
 // DASHBOARD ROUTE
 router.get("/", (req, res) => {
@@ -15,16 +13,16 @@ router.get("/", (req, res) => {
 });
 
 // SHOW ROUTE
-router.get("/:userId", (req, res) => {
-  User.findById(req.params.userId)
-    .populate("workouts")
-    .exec((err, foundUser) => {
-      if (err) return console.log(err);
-      const context = {
-        user: foundUser,
-      };
-      res.render("dashboard/show", context);
-    });
-});
+// router.get("/:userId", (req, res) => {
+//   User.findById(req.params.userId)
+//     .populate("workouts")
+//     .exec((err, foundUser) => {
+//       if (err) return console.log(err);
+//       const context = {
+//         user: foundUser,
+//       };
+//       res.render("dashboard/show", context);
+//     });
+// });
 
 module.exports = router;
