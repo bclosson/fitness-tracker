@@ -46,7 +46,8 @@ router.post("/register", async (req, res) => {
     // res.json({ error: null, data: { userId: savedUser._id } });
     res.redirect("/auth/login");
   } catch (error) {
-    res.status(400).json({ error });
+    // res.status(400).json({ error });
+    res.redirect("/auth/register");
   }
 });
 
