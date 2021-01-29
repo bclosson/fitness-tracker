@@ -11,7 +11,7 @@ const session = require("express-session");
 const User = require("../models/User");
 
 //Passport Initialization
-const initializePassport = require("./passport-config");
+const initializePassport = require("../passport-config");
 initializePassport(
   passport,
   (email) => users.find((user) => user.email === email),
@@ -19,7 +19,7 @@ initializePassport(
 );
 
 // Auth Middleware
-app.use(
+router.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -27,9 +27,9 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
+router.use(passport.initialize());
 
-app.use(passport.session());
+router.use(passport.session());
 
 // Register Route
 router.get("/register", (req, res) => {

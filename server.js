@@ -56,7 +56,8 @@ app.use("/public", express.static("public"));
 //-------------------------------- ROUTES
 //-- HOME Route
 app.get("/", (req, res) => {
-  res.render("index", { username: req.user.username });
+  res.render("index");
+  // res.render("index", { username: req.users.username });
 });
 
 // -- USERS Route
