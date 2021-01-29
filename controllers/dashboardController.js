@@ -2,14 +2,18 @@ const router = require("express").Router();
 
 // DASHBOARD ROUTE
 router.get("/", (req, res) => {
-  res.json({
-    error: null,
-    data: {
-      title: "My dashboard",
-      content: "Dashboard content",
-      user: req.user, // token payload information
-    },
-  });
+  // res.json({
+  //   error: null,
+  //   data: {
+  //     title: "My dashboard",
+  //     content: "Dashboard content",
+  //     user: req.user, // token payload information
+  //   },
+  // });
+  const context = {
+    user: req.user,
+  };
+  res.render("user/show", context);
 });
 
 // SHOW ROUTE
