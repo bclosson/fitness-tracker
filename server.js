@@ -10,15 +10,6 @@ const session = require("express-session");
 
 const methodOverride = require("method-override");
 require("dotenv").config();
-const verifyToken = require("./validate-token");
-
-//Passport Initialization
-// const initializePassport = require("./passport-config");
-// initializePassport(
-//   passport,
-//   (email) => users.find((user) => user.email === email),
-//   (id) => users.find((user) => user.id === id)
-// );
 
 // Set View Engine
 app.set("view engine", "ejs");
@@ -30,20 +21,6 @@ const User = require("./models/User");
 
 //-------------------------------- MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// app.use(flash());
-
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: false,
-//   })
-// );
-
-// app.use(passport.initialize());
-
-// app.use(passport.session());
 
 app.use(morgan(":method :url"));
 
@@ -67,7 +44,7 @@ app.use("/users", ctrl.auth);
 app.use("/auth", ctrl.auth);
 
 // -- DASHBOARD/PROTECTED ROUTE
-app.use("/dashboard", verifyToken, ctrl.dashboard);
+app.use("/dashboard", ctrl.dashboard);
 
 // -- WORKOUTS Route
 app.use("/workouts", ctrl.workouts);
