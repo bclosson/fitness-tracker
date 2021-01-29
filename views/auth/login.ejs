@@ -24,6 +24,7 @@
       <main>
         <br />
         <h2 id="new-user-h2">Welcome Back! Login Below</h2>
+        <% if (messages.error) { %> <%= messages.error %> <% } %>
         <form action="/auth/login" method="POST">
           <div class="form-group">
             <label for="email" id="new-user-info">Email: </label>

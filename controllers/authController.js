@@ -1,8 +1,35 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-
+const passport = require("passport");
+const flash = require("express-flash");
+const session = require("express-session");
 const User = require("../models/User");
+
+//Passport Initialization
+const initializePassport = require("./passport-config");
+initializePassport(
+  passport,
+  (email) => users.find((user) => user.email === email),
+  (id) => users.find((user) => user.id === id)
+);
+
+// Auth Middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+
+app.use(passport.session());
 
 // Register Route
 router.get("/register", (req, res) => {
@@ -15,7 +42,7 @@ router.get("/login", (req, res) => {
 });
 
 // VALIDATION
-const { registerValidation, loginValidation } = require("../validation");
+const { registerValidation } = require("../validation");
 
 // REGISTER ROUTE
 router.post("/register", async (req, res) => {
@@ -42,7 +69,8 @@ router.post("/register", async (req, res) => {
   });
 
   try {
-    const savedUser = await user.save();
+    user.save();
+    // const savedUser = await user.save();
     // res.json({ error: null, data: { userId: savedUser._id } });
     res.redirect("/auth/login");
   } catch (error) {
@@ -53,40 +81,49 @@ router.post("/register", async (req, res) => {
 });
 
 // LOGIN USER
-router.post("/login", async (req, res) => {
-  // Validate The User
-  const { error } = loginValidation(req.body);
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/users",
+    railureRedirect: "auth/login",
+    failureFlash: true,
+  })
+);
 
-  // Throw Validation Errors
-  if (error) return res.status(400).json({ error: error.details[0].message });
+// router.post("/login", async (req, res) => {
+//   // Validate The User
+//   const { error } = loginValidation(req.body);
 
-  const user = await User.findOne({ email: req.body.email });
+//   // Throw Validation Errors
+//   if (error) return res.status(400).json({ error: error.details[0].message });
 
-  // Throw Error When Email is Incorrect
-  if (!user) return res.status(400).json({ error: "Email is Incorrect" });
+//   const user = await User.findOne({ email: req.body.email });
 
-  // Check for Password Match
-  const validPassword = await bcrypt.compare(req.body.password, user.password);
-  if (!validPassword)
-    return res.status(400).json({ error: "Password is Incorrect" });
+//   // Throw Error When Email is Incorrect
+//   if (!user) return res.status(400).json({ error: "Email is Incorrect" });
 
-  // Create Token
-  const token = jwt.sign(
-    // Payload Data
-    {
-      username: user.username,
-      id: user._id,
-    },
-    process.env.ACCESS_TOKEN_SECRET
-  );
+//   // Check for Password Match
+//   const validPassword = await bcrypt.compare(req.body.password, user.password);
+//   if (!validPassword)
+//     return res.status(400).json({ error: "Password is Incorrect" });
 
-  res.header("auth-token", token).json({
-    error: null,
-    data: {
-      token,
-    },
-  });
-  console.log(token);
-});
+//   // Create Token
+//   const token = jwt.sign(
+//     // Payload Data
+//     {
+//       username: user.username,
+//       id: user._id,
+//     },
+//     process.env.ACCESS_TOKEN_SECRET
+//   );
+
+//   res.header("auth-token", token).json({
+//     error: null,
+//     data: {
+//       token,
+//     },
+//   });
+//   console.log(token);
+// });
 
 module.exports = router;
