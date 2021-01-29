@@ -8,6 +8,10 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const User = require("../models/User");
+const { users } = require("./controllers");
+
+// REGISTER VALIDATION
+const { registerValidation } = require("../validation");
 
 //Passport Initialization
 const initializePassport = require("../passport-config");
@@ -39,9 +43,6 @@ router.get("/register", (req, res) => {
 router.get("/login", (req, res) => {
   res.render("auth/login");
 });
-
-// VALIDATION
-const { registerValidation } = require("../validation");
 
 // REGISTER ROUTE
 router.post("/register", async (req, res) => {

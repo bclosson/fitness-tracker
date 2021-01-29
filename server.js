@@ -29,7 +29,7 @@ const { users } = require("./controllers");
 const User = require("./models/User");
 
 //-------------------------------- MIDDLEWARE
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use(flash());
 
