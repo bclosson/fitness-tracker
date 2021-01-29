@@ -49,6 +49,7 @@ router.post("/register", async (req, res) => {
     // res.status(400).json({ error });
     res.redirect("/auth/register");
   }
+  console.log(user);
 });
 
 // LOGIN USER

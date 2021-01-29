@@ -5,10 +5,14 @@ const jwt = require("jsonwebtoken");
 const PORT = process.env.PORT || 4000;
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const passport = require("passport");
 const methodOverride = require("method-override");
 require("dotenv").config();
 const verifyToken = require("./validate-token");
 
+//Passport Initialization
+const initializePassport = require("./passport-config");
+initializePassport(passport);
 // Set View Engine
 app.set("view engine", "ejs");
 
