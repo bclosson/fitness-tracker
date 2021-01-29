@@ -1,9 +1,7 @@
-const express = require("express");
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const dotenv = require("dotenv");
-const db = require("../models");
+
 const User = require("../models/User");
 
 // Register Route
@@ -18,10 +16,9 @@ router.get("/login", (req, res) => {
 
 // VALIDATION
 const { registerValidation, loginValidation } = require("../validation");
-const verifyToken = require("../validate-token");
 
 // REGISTER ROUTE
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
   // Validate the User
   const { error } = registerValidation(req.body);
 
@@ -53,7 +50,7 @@ router.post("/", async (req, res) => {
 });
 
 // LOGIN USER
-router.post("/dashboard", async (req, res) => {
+router.post("/login", async (req, res) => {
   // Validate The User
   const { error } = loginValidation(req.body);
 
