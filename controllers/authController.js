@@ -2,7 +2,7 @@ const express = require("express");
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-
+const dotenv = require("dotenv");
 const db = require("../models");
 const User = require("../models/User");
 
@@ -11,13 +11,14 @@ router.get("/register", (req, res) => {
   res.render("auth/register");
 });
 
-// Login Route
+// LOGIN ROUTE
 router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
 // VALIDATION
 const { registerValidation, loginValidation } = require("../validation");
+const verifyToken = require("../validate-token");
 
 // REGISTER ROUTE
 router.post("/", async (req, res) => {
@@ -51,8 +52,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-// LOGIN ROUTE
-router.post("/dashboard", async (req, res) => {
+// LOGIN USER
+router.post("/login", async (req, res) => {
   // Validate The User
   const { error } = loginValidation(req.body);
 
@@ -73,8 +74,7 @@ router.post("/dashboard", async (req, res) => {
   const token = jwt.sign(
     // Payload Data
     {
-      password: user.password,
-      email: user.email,
+      username: user.username,
       id: user._id,
     },
     process.env.ACCESS_TOKEN_SECRET
@@ -86,6 +86,7 @@ router.post("/dashboard", async (req, res) => {
       token,
     },
   });
+  console.log(token);
 });
 
 module.exports = router;
