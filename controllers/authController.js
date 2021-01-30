@@ -79,7 +79,7 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/users",
-    railureRedirect: "auth/login",
+    failureRedirect: "auth/login",
     failureFlash: true,
   })
 );
