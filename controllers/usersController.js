@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-const { registerValidation, loginValidation } = require("../validation");
+const { checkAuthenticated } = require("../validation");
 
 // Database
 const db = require("../models");
@@ -11,7 +11,7 @@ const { User } = require("../models");
 // Current Path = '/users'
 
 // Get Index Route
-router.get("/", (req, res) => {
+router.get("/", checkAuthenticated, (req, res) => {
   // Query DB for all users
   db.User.find({}, (err, allUsers) => {
     if (err) return console.log(err);

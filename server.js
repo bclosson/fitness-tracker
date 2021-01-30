@@ -34,11 +34,11 @@ app.use("/public", express.static("public"));
 //-- HOME Route
 app.get("/", (req, res) => {
   res.render("index");
-  // res.render("index", { username: req.users.username });
+  // res.render("index", { username: req.user.username });
 });
 
 // -- USERS Route
-app.use("/users", ctrl.auth);
+app.use("/users", ctrl.users);
 
 // -- AUTH Routes
 app.use("/auth", ctrl.auth);

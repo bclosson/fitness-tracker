@@ -7,14 +7,14 @@ const session = require("express-session");
 const User = require("../models/User");
 
 // REGISTER VALIDATION
-const { registerValidation } = require("../validation");
+const { registerValidation, checkAuthenticated } = require("../validation");
 
 //Passport Initialization
 const initializePassport = require("../passport-config");
 initializePassport(
   passport,
-  (email) => users.find((user) => user.email === email),
-  (id) => users.find((user) => user.id === id)
+  email => users.find((user) => user.email === email),
+  id => users.find((user) => user.id === id)
 );
 
 // Auth Middleware
@@ -25,9 +25,7 @@ router.use(
     saveUninitialized: false,
   })
 );
-
 router.use(passport.initialize());
-
 router.use(passport.session());
 
 // Register Route
