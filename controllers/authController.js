@@ -7,7 +7,7 @@ const session = require("express-session");
 const User = require("../models/User");
 
 // REGISTER VALIDATION
-const { registerValidation, checkAuthenticated } = require("../validation");
+const { registerValidation } = require("../validation");
 
 //Passport Initialization
 const initializePassport = require("../passport-config");

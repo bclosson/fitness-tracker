@@ -39,18 +39,6 @@ router.get("/:userId", (req, res) => {
     });
 });
 
-// New Protected Show User Route
-router.get("/:userId", (req, res) => {
-  res.json({
-    error: null,
-    data: {
-      title: "My dashboard",
-      content: "dashboard content",
-      user: req.params.userId, // token payload information
-    },
-  });
-});
-
 // Get Edit Route
 router.get("/:userId/edit", (req, res) => {
   // Query DB for user by ID
@@ -78,6 +66,12 @@ router.put("/:userId", (req, res) => {
       res.redirect(`/users/${updatedUser._id}`);
     }
   );
+});
+
+// Log Out
+router.delete('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/auth/login');
 });
 
 // Delete Route

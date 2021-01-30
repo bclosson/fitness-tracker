@@ -17,7 +17,17 @@ function checkAuthenticated(req, res, next) {
 
   res.redirect("/auth/login");
 }
+
+// Check Not Authenticated
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users")
+  }
+  next();
+}
+
 module.exports = {
   registerValidation,
   checkAuthenticated,
+  checkNotAuthenticated,
 };
