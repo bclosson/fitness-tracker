@@ -75,14 +75,13 @@ router.post("/register", async (req, res) => {
 });
 
 // LOGIN USER
-router.post(
-  "/login",
+router.post("/users",
   passport.authenticate("local", {
     successRedirect: "/users",
     failureRedirect: "auth/login",
     failureFlash: true,
-  })
-);
+  }));
+
 
 // router.post("/login", async (req, res) => {
 //   // Validate The User

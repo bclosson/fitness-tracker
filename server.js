@@ -17,8 +17,6 @@ app.set("view engine", "ejs");
 
 // Controllers
 const ctrl = require("./controllers");
-const { users } = require("./controllers");
-const User = require("./models/User");
 
 //-------------------------------- MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -39,7 +37,7 @@ app.get("/", (req, res) => {
 });
 
 // -- USERS Route
-app.use("/users", ctrl.users);
+app.use("/users", ctrl.auth);
 
 // -- AUTH Routes
 app.use("/auth", checkNotAuthenticated, ctrl.auth);
