@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 });
 
 // -- USERS Route
-app.use("/users", ctrl.auth);
+app.use("/users", ctrl.users);
 
 // -- AUTH Routes
 app.use("/auth", checkNotAuthenticated, ctrl.auth);
