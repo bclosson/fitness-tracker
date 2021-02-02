@@ -8,10 +8,11 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-  <%- include('../partials/navbar') %> <%- include('../partials/footer') %>
-  <%- include('../partials/style') %>
+  <%- include('../partials/navbar') %>
+    <%- include('../partials/footer') %>
+      <%- include('../partials/style') %>
 
-  <title>Fitness Tracker</title>
+        <title>Fitness Tracker</title>
 </head>
 <div class="container">
 
@@ -19,7 +20,7 @@
     <main>
       <br />
       <h2 id="new-user-h2">Welcome Back! Login Below</h2>
-      <form action="/users" method="POST">
+      <form action="/users/login" method="POST">
         <div class="form-group">
           <label for="email" id="new-user-info">Email: </label>
           <input name="email" type="email" placeholder="Email address" id="name-box" class="form-control" />
@@ -30,7 +31,7 @@
           Login
         </button>
       </form>
-      <a href="/auth/register">Register</a>
+      <a href="/users/register">Register</a>
     </main>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
