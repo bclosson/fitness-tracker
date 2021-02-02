@@ -5,10 +5,6 @@ const PORT = process.env.PORT || 4000;
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const { checkNotAuthenticated } = require('./validation');
-const bcrypt = require("bcryptjs");
-const passport = require("passport");
-const flash = require("express-flash");
-const session = require("express-session");
 const methodOverride = require("method-override");
 require("dotenv").config();
 
@@ -38,18 +34,6 @@ app.get("/", (req, res) => {
 
 // -- USERS Route
 app.use("/users", ctrl.users);
-
-// -- AUTH Routes
-app.use("/auth", checkNotAuthenticated, ctrl.auth);
-
-// -- LOGOUT Route
-app.delete('/logout', (req, res) => {
-  req.logOut();
-  res.redirect('/login');
-});
-
-// -- DASHBOARD/PROTECTED ROUTE
-app.use("/dashboard", ctrl.dashboard);
 
 // -- WORKOUTS Route
 app.use("/workouts", ctrl.workouts);

@@ -104,6 +104,12 @@ router.get("/", checkAuthenticated, (req, res) => {
   });
 });
 
+// -- LOGOUT USER
+app.delete('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/login');
+});
+
 // Get Show Route
 router.get("/:userId", (req, res) => {
   // Query DB for user by Id
