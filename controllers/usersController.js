@@ -105,7 +105,7 @@ router.get("/", checkAuthenticated, (req, res) => {
 });
 
 // -- LOGOUT USER
-app.delete('/logout', (req, res) => {
+router.delete('/logout', (req, res) => {
   req.logOut();
   res.redirect('/login');
 });
