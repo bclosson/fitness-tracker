@@ -18,8 +18,8 @@ const { registerValidation } = require("../validation");
 const initializePassport = require("../passport-config");
 initializePassport(
   passport,
-  email => users.find((user) => user.email === email),
-  id => users.find((user) => user.id === id)
+  email => user.find((user) => user.email === email),
+  id => user.find((user) => user.id === id)
 );
 
 // Auth Middleware
@@ -37,12 +37,12 @@ router.use(passport.session());
 // Current Path = '/users'
 // REGISTER ROUTE
 router.get("/register", (req, res) => {
-  res.render("/register");
+  res.render("users/register");
 });
 
 // LOGIN ROUTE
 router.get("/login", (req, res) => {
-  res.render("/login")
+  res.render("users/login")
 });
 
 // REGISTER REQUEST
@@ -72,7 +72,7 @@ router.post("/register", async (req, res) => {
     user.save();
     // const savedUser = await user.save();
     // res.json({ error: null, data: { userId: savedUser._id }});
-    res.redirect("/login");
+    res.redirect("/users/login");
   } catch (error) {
     // res.status(400).json({ error });
     res.redirect("/register");
@@ -81,9 +81,9 @@ router.post("/register", async (req, res) => {
 });
 
 // LOGIN USER
-router.post("/login",
+router.post("/",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/users/:id",
     failureRedirect: "/login",
     failureFlash: true,
   }));
