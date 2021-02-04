@@ -9,7 +9,7 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const jwt = require("jsonwebtoken");
-const { checkAuthenticated } = require("../validation");
+const { checkAuthenticated, checkNotAuthenticated } = require("../validation");
 
 // Database
 const db = require("../models");
@@ -57,17 +57,17 @@ router.get("/", checkAuthenticated, (req, res) => {
 });
 
 // REGISTER ROUTE
-router.get("/register", (req, res) => {
+router.get("/register", checkNotAuthenticated, (req, res) => {
   res.render("users/register");
 });
 
 // LOGIN ROUTE
-router.get("/login", (req, res) => {
+router.get("/login", checkNotAuthenticated, (req, res) => {
   res.render("users/login")
 });
 
 // REGISTER REQUEST
-router.post("/register", async (req, res) => {
+router.post("/register", checkNotAuthenticated, async (req, res) => {
   // Validate the User
   const { error } = registerValidation(req.body);
 
@@ -102,7 +102,7 @@ router.post("/register", async (req, res) => {
 });
 
 // LOGIN USER
-router.post("/login",
+router.post("/login", checkNotAuthenticated,
   passport.authenticate("local", {
     successRedirect: "/users",
     failureRedirect: "/login",
