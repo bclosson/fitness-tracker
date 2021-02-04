@@ -20,18 +20,21 @@
     <main>
       <br />
       <h2 id="new-user-h2">Welcome Back! Login Below</h2>
-      <form action="/users" method="POST">
-        <div class="form-group">
-          <label for="email" id="new-user-info">Email: </label>
-          <input name="email" type="email" placeholder="Email address" id="name-box" class="form-control" />
-          <label for="password" id="new-user-info">Password: </label>
-          <input name="password" type="password" placeholder="Password" id="name-box" class="form-control" />
-        </div>
-        <button type="submit" class="btn btn-primary" id="add-user-button">
-          Login
-        </button>
-      </form>
-      <a href="/users/register">Register</a>
+      <% if (messages.error) { %>
+        <%= messages.error %>
+          <% } %>
+            <form action="/users" method="POST">
+              <div class="form-group">
+                <label for="email" id="new-user-info">Email: </label>
+                <input name="email" type="email" placeholder="Email address" id="name-box" class="form-control" />
+                <label for="password" id="new-user-info">Password: </label>
+                <input name="password" type="password" placeholder="Password" id="name-box" class="form-control" />
+              </div>
+              <button type="submit" class="btn btn-primary" id="add-user-button">
+                Login
+              </button>
+            </form>
+            <a href="/users/register">Register</a>
     </main>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

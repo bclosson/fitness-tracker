@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
@@ -23,11 +27,13 @@ initializePassport(
 );
 
 // Auth Middleware
+router.use(flash())
+
 router.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitiallized: false,
+    saveUninitialized: false,
   })
 );
 
@@ -81,9 +87,9 @@ router.post("/register", async (req, res) => {
 });
 
 // LOGIN USER
-router.post("/",
+router.post("/login",
   passport.authenticate("local", {
-    successRedirect: "/users/show",
+    successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true,
   }));
