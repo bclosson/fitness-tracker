@@ -18,8 +18,8 @@ const { registerValidation } = require("../validation");
 const initializePassport = require("../passport-config");
 initializePassport(
   passport,
-  email => user.find((user) => user.email === email),
-  id => user.find((user) => user.id === id)
+  email => users.find((user) => user.email === email),
+  id => users.find((user) => user.id === id)
 );
 
 // Auth Middleware
@@ -83,7 +83,7 @@ router.post("/register", async (req, res) => {
 // LOGIN USER
 router.post("/",
   passport.authenticate("local", {
-    successRedirect: "/users/:id",
+    successRedirect: "/users/show",
     failureRedirect: "/login",
     failureFlash: true,
   }));
