@@ -86,7 +86,7 @@ router.post("/register", checkNotAuthenticated, async (req, res) => {
   const user = new User({
     username: req.body.username,
     email: req.body.email,
-    password, //hashed password
+    password: password, //hashed password
   });
 
   try {
@@ -104,7 +104,7 @@ router.post("/register", checkNotAuthenticated, async (req, res) => {
 // LOGIN USER
 router.post("/login", checkNotAuthenticated,
   passport.authenticate("local", {
-    successRedirect: "/users",
+    successRedirect: "/users/index",
     failureRedirect: "/login",
     failureFlash: true,
   }));
@@ -180,10 +180,6 @@ router.delete("/:userId", (req, res) => {
 });
 
 module.exports = router;
-
-
-
-
 
 // router.post("/login", async (req, res) => {
 //   // Validate The User
