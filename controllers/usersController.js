@@ -10,6 +10,7 @@ const flash = require("express-flash");
 const session = require("express-session");
 const jwt = require("jsonwebtoken");
 const { checkAuthenticated, checkNotAuthenticated } = require("../validation");
+const methodOverride = require("method-override");
 
 // Database
 const db = require("../models");
@@ -28,7 +29,6 @@ initializePassport(
 
 // Auth Middleware
 router.use(flash())
-
 router.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -36,9 +36,9 @@ router.use(
     saveUninitialized: false,
   })
 );
-
 router.use(passport.initialize());
 router.use(passport.session());
+router.use(methodOverride('_method'));
 
 // Current Path = '/users'
 // Get Index Route
