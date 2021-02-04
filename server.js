@@ -25,6 +25,7 @@ app.use(express.json());
 
 app.use("/public", express.static("public"));
 
+
 //-------------------------------- ROUTES
 //-- HOME Route
 app.get("/", (req, res) => {

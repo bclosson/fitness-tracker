@@ -22,8 +22,8 @@ const { registerValidation } = require("../validation");
 const initializePassport = require("../passport-config");
 initializePassport(
   passport,
-  email => users.find((user) => user.email === email),
-  id => users.find((user) => user.id === id)
+  email => User.find(user => user.email === email),
+  id => User.find(user => user.id === id)
 );
 
 // Auth Middleware
@@ -41,6 +41,21 @@ router.use(passport.initialize());
 router.use(passport.session());
 
 // Current Path = '/users'
+// Get Index Route
+router.get("/", checkAuthenticated, (req, res) => {
+  // Query DB for all users
+  db.User.find({}, (err, allUsers) => {
+    if (err) return console.log(err);
+
+    const context = {
+      users: allUsers,
+      name: "All Users",
+    };
+
+    res.render("users/index", context);
+  });
+});
+
 // REGISTER ROUTE
 router.get("/register", (req, res) => {
   res.render("users/register");
@@ -89,26 +104,11 @@ router.post("/register", async (req, res) => {
 // LOGIN USER
 router.post("/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/users",
     failureRedirect: "/login",
     failureFlash: true,
   }));
 
-
-// Get Index Route
-router.get("/", checkAuthenticated, (req, res) => {
-  // Query DB for all users
-  db.User.find({}, (err, allUsers) => {
-    if (err) return console.log(err);
-
-    const context = {
-      users: allUsers,
-      name: "All Users",
-    };
-
-    res.render("users/index", context);
-  });
-});
 
 // -- LOGOUT USER
 router.delete('/logout', (req, res) => {
