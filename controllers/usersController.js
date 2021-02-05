@@ -111,9 +111,15 @@ router.post("/login", checkNotAuthenticated,
 
 
 // -- LOGOUT USER
+// router.delete('/logout', (req, res) => {
+//   req.session.destroy((err) => {
+//     if (err) return console.log(err);
+//     res.redirect('/users/login');
+//   });
+// });
 router.delete('/logout', (req, res) => {
   req.logOut();
-  res.redirect('/login');
+  res.redirect('/users/login');
 });
 
 // Get Show Route
