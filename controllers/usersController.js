@@ -104,7 +104,7 @@ router.post("/register", checkNotAuthenticated, async (req, res) => {
 // LOGIN USER
 router.post("/login", checkNotAuthenticated,
   passport.authenticate("local", {
-    successRedirect: "/users/index",
+    successRedirect: "/users",
     failureRedirect: "/login",
     failureFlash: true,
   }));
