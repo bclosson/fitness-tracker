@@ -179,38 +179,3 @@ router.delete("/:userId", (req, res) => {
 
 module.exports = router;
 
-// router.post("/login", async (req, res) => {
-//   // Validate The User
-//   const { error } = loginValidation(req.body);
-
-//   // Throw Validation Errors
-//   if (error) return res.status(400).json({ error: error.details[0].message });
-
-//   const user = await User.findOne({ email: req.body.email });
-
-//   // Throw Error When Email is Incorrect
-//   if (!user) return res.status(400).json({ error: "Email is Incorrect" });
-
-//   // Check for Password Match
-//   const validPassword = await bcrypt.compare(req.body.password, user.password);
-//   if (!validPassword)
-//     return res.status(400).json({ error: "Password is Incorrect" });
-
-//   // Create Token
-//   const token = jwt.sign(
-//     // Payload Data
-//     {
-//       username: user.username,
-//       id: user._id,
-//     },
-//     process.env.ACCESS_TOKEN_SECRET
-//   );
-
-//   res.header("auth-token", token).json({
-//     error: null,
-//     data: {
-//       token,
-//     },
-//   });
-//   console.log(token);
-// });
